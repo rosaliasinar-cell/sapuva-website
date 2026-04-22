@@ -3,289 +3,1550 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAPUVA - Sapu-sapu Awareness Project</title>
+    <title>SAPUVA - Sapu-Sapu Utopia Virtual Advisor</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- ========== NAVBAR ========== -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">🐟 SAPUVA</div>
             <ul class="nav-links">
                 <li><a href="#home">Beranda</a></li>
-                <li><a href="#learn">Belajar</a></li>
-                <li><a href="#community">Komunitas</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#bioecology">Bioekologi</a></li>
+                <li><a href="#analysis">Analisis</a></li>
+                <li><a href="#mitigation">Solusi</a></li>
+                <li><a href="#team">Tim</a></li>
                 <li><a href="#contact">Kontak</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- BERANDA / HOME -->
+    <!-- ========== HOME / BERANDA ========== -->
     <section id="home" class="home-section">
         <div class="container">
             <div class="hero">
-                <h1>🌿 SAPUVA 🐟</h1>
-                <p class="tagline">Sapu-Sapu Awareness Project - Gerakan Edukasi tentang Ikan Invasif</p>
-                <p class="intro-text">Kami adalah tim mahasiswa yang peduli dengan kelestarian ekosistem sungai Indonesia</p>
+                <h1>🌊 SAPUVA 🐟</h1>
+                <p class="tagline">Sapu-Sapu Utopia Virtual Advisor for Interactive Web-Based Marine Education, Preservation and Action</p>
+                <p class="intro-text">Platform Edukasi Komprehensif tentang Ikan Invasif dan Pelestarian Ekosistem Perairan Indonesia</p>
+                <div class="hero-cta">
+                    <a href="#about" class="btn btn-primary">Mulai Belajar</a>
+                    <a href="#contact" class="btn btn-secondary">Hubungi Kami</a>
+                </div>
             </div>
 
-            <div class="team-section">
-                <h2>🤝 Tim SAPUVANIAN</h2>
-                <div class="team-grid">
-                    <div class="team-card">
-                        <div class="member-avatar">👨‍💼</div>
-                        <h3>Anargya Ranandy</h3>
-                        <p>Koordinator Proyek</p>
-                    </div>
-                    <div class="team-card">
-                        <div class="member-avatar">👩‍💻</div>
-                        <h3>Dedan Concetta</h3>
-                        <p>Content Creator</p>
-                    </div>
-                    <div class="team-card">
-                        <div class="member-avatar">🔬</div>
-                        <h3>Elisabet Andara</h3>
-                        <p>Riset & Data</p>
-                    </div>
-                    <div class="team-card">
-                        <div class="member-avatar">✨</div>
-                        <h3>Jovianca Yoshi</h3>
-                        <p>Desain UI/UX</p>
-                    </div>
-                    <div class="team-card">
-                        <div class="member-avatar">🌍</div>
-                        <h3>Noventiana</h3>
-                        <p>Community Manager</p>
-                    </div>
-                    <div class="team-card">
-                        <div class="member-avatar">💻</div>
-                        <h3>Rosalia Sinar</h3>
-                        <p>Web Developer</p>
-                    </div>
+            <!-- Quick Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>53.81%</h3>
+                    <p>Dominasi Hasil Tangkapan</p>
+                </div>
+                <div class="stat-card">
+                    <h3>40-60%</h3>
+                    <p>Penurunan Biodiversitas</p>
+                </div>
+                <div class="stat-card">
+                    <h3>70-80%</h3>
+                    <p>Biomassa Total</p>
+                </div>
+                <div class="stat-card">
+                    <h3>1000-3000</h3>
+                    <p>Telur per Siklus</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- BELAJAR / LEARN -->
-    <section id="learn" class="learn-section">
+    <!-- ========== LATAR BELAKANG / ABOUT ========== -->
+    <section id="about" class="about-section">
         <div class="container">
-            <h2>📚 Belajar tentang Ikan Sapu-Sapu</h2>
-
-            <!-- Background Section -->
-            <div class="learning-module">
-                <h3>🐠 Latar Belakang Ikan Sapu-Sapu</h3>
-                <div class="module-content">
-                    <div class="info-box">
-                        <h4>Nama Latin & Asal Usul</h4>
-                        <p><strong>Hypostomus plecostomus</strong> adalah ikan air tawar asli dari Amerika Selatan, khususnya:</p>
-                        <ul>
-                            <li>🌳 Lembah Sungai Amazon</li>
-                            <li>🌴 Kawasan Brasil</li>
-                            <li>🏞️ Paraguay dan Uruguay</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="info-box">
-                        <h4>Bagaimana Masuk ke Indonesia?</h4>
-                        <p>Ikan sapu-sapu masuk ke Indonesia melalui:</p>
-                        <ul>
-                            <li>🐠 <strong>Perdagangan ikan hias</strong> (Era 1980-an)</li>
-                            <li>📦 Impor dari negara lain untuk aquarium pribadi</li>
-                            <li>🏠 Dilepaskan oleh pemilik yang tidak bisa memelihara</li>
-                        </ul>
-                        <p><em>Kini menjadi spesies invasif karena daya tahan tinggi terhadap air tercemar</em></p>
-                    </div>
-
-                    <div class="fish-description">
-                        <h4>⚡ Karakteristik Ikan Sapu-Sapu</h4>
-                        <div class="characteristics">
-                            <div class="char-item">
-                                <span class="char-label">Ukuran:</span>
-                                <span>40-50 cm (dewasa)</span>
-                            </div>
-                            <div class="char-item">
-                                <span class="char-label">Tubuh:</span>
-                                <span>Berlapis pelat tulang keras (scutes)</span>
-                            </div>
-                            <div class="char-item">
-                                <span class="char-label">Mulut:</span>
-                                <span>Ventral (cakram hisap)</span>
-                            </div>
-                            <div class="char-item">
-                                <span class="char-label">Respirasi:</span>
-                                <span>Ekstraksi oksigen dari udara</span>
-                            </div>
-                            <div class="char-item">
-                                <span class="char-label">Telur:</span>
-                                <span>1.000-3.000 butir per siklus</span>
-                            </div>
-                            <div class="char-item">
-                                <span class="char-label">Suhu Ideal:</span>
-                                <span>22-30°C</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Problems Section -->
-            <div class="learning-module">
-                <h3>⚠️ Masalah: Dampak Ikan Sapu-Sapu terhadap Ekosistem</h3>
-                
-                <div class="problem-grid">
-                    <!-- Physical Impact -->
-                    <div class="problem-card physical">
-                        <h4>🌊 Dampak Fisika</h4>
-                        <div class="impact-content">
-                            <p><strong>Kekeruhan Air Sungai</strong></p>
-                            <ul>
-                                <li>Bioturbasi: mengaduk sedimen</li>
-                                <li>Turbiditas: 50-100 NTU</li>
-                                <li>Cahaya: -30-50%</li>
-                                <li>❌ Hambat fotosintesis</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Biological Impact -->
-                    <div class="problem-card biological">
-                        <h4>🦜 Dampak Biologi</h4>
-                        <div class="impact-content">
-                            <p><strong>Gangguan Rantai Makanan</strong></p>
-                            <ul>
-                                <li>Invasif tanpa predator alami</li>
-                                <li>Makan telur ikan lokal</li>
-                                <li>Populasi ledak: 53,81% biomassa</li>
-                                <li>❌ Ikan lokal -60-80%</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Chemical Impact -->
-                    <div class="problem-card chemical">
-                        <h4>⚗️ Dampak Kimia</h4>
-                        <div class="impact-content">
-                            <p><strong>Perubahan Komposisi Air</strong></p>
-                            <ul>
-                                <li>pH rendah (asam)</li>
-                                <li>Amonia tinggi</li>
-                                <li>Fosfat: 0,5-1 mg/L</li>
-                                <li>❌ Oksigen terlarut <4 mg/L</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="alert-box">
-                    <h4>🚨 Statistik Menakutkan</h4>
-                    <p>Hasil tangkapan ikan sapu-sapu mencapai <strong>53.81%</strong> dari total tangkapan di salah satu danau Indonesia! Populasi telah <strong>mendominasi ekosistem</strong> dan mengancam ikan lokal.</p>
-                </div>
-            </div>
-
-            <!-- Call to Action -->
-            <div class="learning-module">
-                <h3>💚 Mari Bersama Menyadari Bahaya Ikan Sapu-Sapu</h3>
-                <div class="cta-content">
-                    <p>Ikan sapu-sapu bukan hanya ikan biasa. Kehadirannya mengancam:</p>
-                    <ul class="cta-list">
-                        <li>🌱 Keseimbangan ekosistem air tawar Indonesia</li>
-                        <li>🐟 Kelestarian ikan-ikan lokal asli</li>
-                        <li>💧 Kualitas air sungai dan danau</li>
-                        <li>🌍 Keanekaragaman hayati</li>
-                        <li>👨‍🌾 Mata pencaharian nelayan lokal</li>
-                    </ul>
-                    <p><strong>Dengan memahami masalah ini, kita bisa mengambil tindakan nyata!</strong></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- KOMUNITAS / COMMUNITY -->
-    <section id="community" class="community-section">
-        <div class="container">
-            <h2>👥 Komunitas SAPUVANIAN</h2>
+            <h2>📚 Latar Belakang & Permasalahan</h2>
             
-            <div class="community-content">
-                <div class="community-card">
-                    <h3>🎯 Misi Kami</h3>
-                    <p>Meningkatkan kesadaran masyarakat tentang dampak negatif ikan sapu-sapu terhadap ekosistem perairan Indonesia melalui edukasi, riset, dan keterlibatan komunitas.</p>
+            <div class="content-grid">
+                <div class="content-box">
+                    <h3>🔍 Konteks Ekosistem Perairan</h3>
+                    <p>Perairan merupakan kesatuan utuh antara komponen-komponen <strong>fisika, kimia, dan biologi</strong> dalam suatu media air pada wilayah tertentu. Keseimbangan ketiga komponen ini menjadi indikator kritis kesehatan ekosistem. Ketika salah satu komponen mengalami ketimpangan, seluruh ekosistem turut terganggu.</p>
+                    <div class="info-alert">
+                        <strong>⚠️ Fokus Penelitian:</strong> Analisis mendalam tentang dampak Hypostomus plecostomus terhadap parameter fisika, kimia, dan biologi perairan Indonesia.
+                    </div>
                 </div>
 
-                <div class="community-card">
-                    <h3>🌟 Visi Kami</h3>
-                    <p>Menciptakan sungai dan danau Indonesia yang sehat, seimbang, dan terbebas dari dominasi spesies invasif melalui aksi bersama masyarakat.</p>
+                <div class="content-box">
+                    <h3>🌍 Krisis Invasi Biologis</h3>
+                    <p>Meledaknya populasi ikan sapu-sapu (Hypostomus plecostomus) di berbagai perairan Indonesia, khususnya Sungai Citarum dan Danau Maninjau, menjadi pusat perhatian sebagai kasus invasi biologis yang tidak terkendali. Spesies ini menunjukkan dominasi absolut, mencapai <strong>53.81% dari total hasil tangkapan</strong> di beberapa danau penelitian.</p>
                 </div>
 
-                <div class="community-card">
-                    <h3>💪 Apa yang Bisa Anda Lakukan?</h3>
+                <div class="content-box">
+                    <h3>⚡ Mekanisme Invasif</h3>
+                    <p>Ikan ini masuk ke Indonesia melalui <strong>perdagangan ikan hias (era 1980-an)</strong> namun berkembang menjadi spesies invasif karena:</p>
                     <ul>
-                        <li>📖 Belajar tentang ikan sapu-sapu</li>
-                        <li>🤝 Bergabung dengan gerakan kami</li>
-                        <li>🐟 Jangan lepaskan ikan peliharaan</li>
-                        <li>💬 Bagikan pengetahuan</li>
-                        <li>🌍 Ikuti program monitoring lokal</li>
+                        <li>Daya tahan tinggi terhadap air tercemar</li>
+                        <li>Sistem respirasi tambahan (labirin insang)</li>
+                        <li>Adaptasi luas terhadap fluktuasi suhu (22-30°C) dan pH (6-8)</li>
+                        <li>Ketiadaan predator alami</li>
                     </ul>
                 </div>
 
-                <div class="community-card">
-                    <h3>🎤 Testimoni Komunitas</h3>
-                    <p><em>"Sejak tahu tentang bahaya ikan sapu-sapu, saya lebih peduli dengan lingkungan sungai. Terima kasih SAPUVA!"</em></p>
-                    <p style="margin-top: 10px; font-size: 0.9em;">- Anggota Komunitas Peduli Lingkungan</p>
+                <div class="content-box">
+                    <h3>🎯 Rumusan Masalah Penelitian</h3>
+                    <ol class="problem-list">
+                        <li><strong>Dampak Biologis:</strong> Bagaimana dampak keberadaan ikan sapu-sapu terhadap keseimbangan ekosistem dan keanekaragaman hayati di perairan?</li>
+                        <li><strong>Dampak Kimia:</strong> Bagaimana kondisi kimia air (pH, kadar oksigen, zat pencemar) mempengaruhi kemampuan bertahan dan berkembang biak?</li>
+                        <li><strong>Dampak Fisika:</strong> Bagaimana faktor fisika perairan (arus, suhu, kekeruhan) mempengaruhi penyebaran dan dominasi populasi?</li>
+                    </ol>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- KONTAK / CONTACT -->
+    <!-- ========== BIOEKOLOGI IKAN SAPU-SAPU ========== -->
+    <section id="bioecology" class="bioecology-section">
+        <div class="container">
+            <h2>🐟 Bioekologi Ikan Sapu-Sapu (Hypostomus plecostomus)</h2>
+
+            <!-- Taxonomi & Asal Usul -->
+            <div class="learning-module">
+                <h3>📋 Klasifikasi & Taksonomi</h3>
+                <div class="two-column">
+                    <div class="column">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Hypostomus_plecostomus.jpg/640px-Hypostomus_plecostomus.jpg" alt="Hypostomus plecostomus" class="module-image">
+                        <p class="image-credit">Sumber: Wikimedia Commons - Ikan Sapu-Sapu Dewasa</p>
+                    </div>
+                    <div class="column">
+                        <div class="taxonomy-box">
+                            <h4>Klasifikasi Ilmiah</h4>
+                            <table class="taxonomy-table">
+                                <tr><td><strong>Kingdom</strong></td><td>Animalia</td></tr>
+                                <tr><td><strong>Phylum</strong></td><td>Chordata</td></tr>
+                                <tr><td><strong>Class</strong></td><td>Actinopterygii</td></tr>
+                                <tr><td><strong>Order</strong></td><td>Siluriformes</td></tr>
+                                <tr><td><strong>Family</strong></td><td>Loricariidae</td></tr>
+                                <tr><td><strong>Genus</strong></td><td>Hypostomus</td></tr>
+                                <tr><td><strong>Species</strong></td><td>H. plecostomus (Linnaeus, 1758)</strong></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h4>🌏 Asal-Usul Geografis</h4>
+                    <p><strong>Habitat Asli:</strong> Kawasan Neotropis Amerika Selatan, khususnya:</p>
+                    <ul>
+                        <li>🏞️ Sistem drainase Sungai Amazon (Brasil, Venezuela, Ekuador)</li>
+                        <li>🌳 Lembah tropis Brasil, Paraguay, dan Uruguay</li>
+                        <li>💧 Perairan tawar dengan substrat berlumpur dan bervegetasi tinggi</li>
+                    </ul>
+                    <p><strong>Kedalaman hidup:</strong> 0-30 meter pada sungai dan aliran air</p>
+                </div>
+            </div>
+
+            <!-- Morfologi & Adaptasi -->
+            <div class="learning-module">
+                <h3>🔬 Karakteristik Morfologi & Adaptasi Fisiologis</h3>
+                
+                <div class="morphology-grid">
+                    <div class="morph-card">
+                        <h4>💪 Struktur Tubuh</h4>
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=300&h=200&fit=crop" alt="Struktur tubuh ikan" class="morph-image">
+                        <ul>
+                            <li><strong>Panjang:</strong> 40-50 cm (dewasa), max 60 cm</li>
+                            <li><strong>Pelapis:</strong> Scutes (pelat tulang keras)</li>
+                            <li><strong>Bentuk tubuh:</strong> Dorsoventral, pipih</li>
+                            <li><strong>Berat:</strong> 500-1200 gram (dewasa)</li>
+                        </ul>
+                    </div>
+
+                    <div class="morph-card">
+                        <h4>👄 Struktur Mulut</h4>
+                        <img src="https://images.unsplash.com/photo-1554224311-beee415c201f?w=300&h=200&fit=crop" alt="Mulut ikan" class="morph-image">
+                        <ul>
+                            <li><strong>Posisi:</strong> Ventral (di bawah)</li>
+                            <li><strong>Bentuk:</strong> Cakram hisap (suckermouth)</li>
+                            <li><strong>Fungsi:</strong> Menghisap alga & detritus</li>
+                            <li><strong>Adaptasi:</strong> Pembersih kolam alami</li>
+                        </ul>
+                    </div>
+
+                    <div class="morph-card">
+                        <h4>🫁 Sistem Respirasi</h4>
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=300&h=200&fit=crop" alt="Sistem respirasi" class="morph-image">
+                        <ul>
+                            <li><strong>Respirasi brankial:</strong> Insang normal</li>
+                            <li><strong>Respirasi tambahan:</strong> Labirin insang</li>
+                            <li><strong>Ekstraks oksigen:</strong> Dari udara atmosfer</li>
+                            <li><strong>Kemampuan:</strong> Bertahan pada hipoksia ekstrem</li>
+                        </ul>
+                    </div>
+
+                    <div class="morph-card">
+                        <h4>🎨 Warna & Pola</h4>
+                        <img src="https://images.unsplash.com/photo-1598531176847-c9f02ee19fcf?w=300&h=200&fit=crop" alt="Pola warna" class="morph-image">
+                        <ul>
+                            <li><strong>Dorsal:</strong> Coklat hingga hitam pekat</li>
+                            <li><strong>Ventral:</strong> Abu-abu hingga putih krem</li>
+                            <li><strong>Pola:</strong> Bintik-bintik kuning atau putih</li>
+                            <li><strong>Fungsi:</strong> Kamuflase pada substrat</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="adaptation-box">
+                    <h4>⚙️ Adaptasi Ekologis Spesies</h4>
+                    <div class="adaptation-grid">
+                        <div class="adapt-item">
+                            <span class="adapt-icon">🌡️</span>
+                            <p><strong>Toleransi Suhu:</strong> 22-30°C (range luas)</p>
+                        </div>
+                        <div class="adapt-item">
+                            <span class="adapt-icon">📊</span>
+                            <p><strong>Toleransi pH:</strong> 6.0-8.0 (fleksibel)</p>
+                        </div>
+                        <div class="adapt-item">
+                            <span class="adapt-icon">💨</span>
+                            <p><strong>Resistansi Hipoksia:</strong> Sangat tinggi</p>
+                        </div>
+                        <div class="adapt-item">
+                            <span class="adapt-icon">🍴</span>
+                            <p><strong>Jenis Pakan:</strong> Omnivora-detritivora</p>
+                        </div>
+                        <div class="adapt-item">
+                            <span class="adapt-icon">🏠</span>
+                            <p><strong>Habitat Preferensi:</strong> Benthic (dasar)</p>
+                        </div>
+                        <div class="adapt-item">
+                            <span class="adapt-icon">🔄</span>
+                            <p><strong>Siklus Reproduksi:</strong> 6-12 bulan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reproduksi & Fekunditas -->
+            <div class="learning-module">
+                <h3>👶 Reproduksi & Dinamika Populasi</h3>
+                
+                <div class="reproduction-content">
+                    <div class="repro-card">
+                        <h4>🥚 Parameter Reproduksi</h4>
+                        <table class="repro-table">
+                            <tr>
+                                <td><strong>Fekunditas</strong></td>
+                                <td>1,000 - 3,000 butir telur/siklus</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tingkat Penetasan</strong></td>
+                                <td>70-85% (kondisi optimal)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Siklus Reproduksi</strong></td>
+                                <td>6-12 bulan (cepat)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ukuran Matang Gonad</strong></td>
+                                <td>15-20 cm</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Asuhan Parental</strong></td>
+                                <td>Perawatan telur minimal (3-5 hari)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Laju Pertumbuhan</strong></td>
+                                <td>3-5 cm/bulan (juvenil)</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="repro-card">
+                        <h4>📈 Proyeksi Pertumbuhan Populasi</h4>
+                        <div class="growth-chart">
+                            <canvas id="populationChart"></canvas>
+                        </div>
+                        <p class="chart-note">*Estimasi berdasarkan data monitoring danau (BRKP, 2024)</p>
+                    </div>
+                </div>
+
+                <div class="danger-box">
+                    <h4>⚠️ Implikasi Invasi</h4>
+                    <p>Kombinasi <strong>laju reproduksi cepat (6-12 bulan)</strong>, <strong>fekunditas tinggi (1000-3000 telur)</strong>, dan <strong>ketiadaan predator alami</strong> menciptakan <strong>ledakan populasi eksponensial</strong> yang sulit dikendalikan setelah introuksi ke habitat baru.</p>
+                </div>
+            </section>
+
+            <!-- Perilaku & Ekologi -->
+            <div class="learning-module">
+                <h3>🎯 Perilaku & Ekologi Niche</h3>
+                
+                <div class="behavior-tabs">
+                    <div class="tab-content">
+                        <h4>🍽️ Perilaku Makan (Feeding Behavior)</h4>
+                        <ul class="behavior-list">
+                            <li><strong>Tipe Makanan:</strong> Omnivora-detritivora (pemakan detritus & alga)</li>
+                            <li><strong>Strategi Pencarian Pakan:</strong> Nocturnal (malam hari), menggunakan barbel sensitif</li>
+                            <li><strong>Lokasi Mencari Pakan:</strong> Substrat dasar (benthic feeding)</li>
+                            <li><strong>Metode Konsumsi:</strong> Menghisap dengan mulut cakram → Bioturbasi sedimen</li>
+                            <li><strong>Predasi Telur:</strong> Mengonsumsi telur spesies lokal sebagai sumber protein</li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-content">
+                        <h4>🏠 Niche Ekologis</h4>
+                        <ul class="behavior-list">
+                            <li><strong>Relung Spasial:</strong> Benthic zone (0-30m), di celah batu & kayu tenggelam</li>
+                            <li><strong>Relung Temporal:</strong> Nokturnal (aktif malam), quiescence siang</li>
+                            <li><strong>Relung Trofik:</strong> Detritivora-algavora (makan detritus & alga perofitik)</li>
+                            <li><strong>Habitat Preferensi:</strong> Perairan keruh, substrat berlumpur, vegetasi air</li>
+                            <li><strong>Toleransi Keragaman Habitat:</strong> Sangat luas (generalis)</li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-content">
+                        <h4>🤝 Interaksi Sosial</h4>
+                        <ul class="behavior-list">
+                            <li><strong>Sistem Sosial:</strong> Soliter hingga gregarious (berkelompok saat juvenile)</li>
+                            <li><strong>Territorialitas:</strong> Rendah, tetapi dapat agresif pada periode breeding</li>
+                            <li><strong>Kompetisi Intrasp:</strong> Tinggi di perairan padat populasi</li>
+                            <li><strong>Patrilokali:</strong> Tidak terlihat, migrasi vertikal musiman terbatas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ANALISIS DAMPAK: FISIKA, KIMIA, BIOLOGI ========== -->
+    <section id="analysis" class="analysis-section">
+        <div class="container">
+            <h2>🔬 Analisis Multidimensi Dampak Spesies Invasif</h2>
+            <p class="section-intro">Invasi H. plecostomus menimbulkan degradasi ekosistem sistemik yang dianalisis melalui tiga dimensi utama: <strong>Fisika, Kimia, dan Biologi</strong></p>
+
+            <!-- TAB SWITCHING -->
+            <div class="analysis-tabs">
+                <button class="tab-btn active" onclick="switchTab('physics')">📊 Analisis Fisika</button>
+                <button class="tab-btn" onclick="switchTab('chemistry')">⚗️ Analisis Kimia</button>
+                <button class="tab-btn" onclick="switchTab('biology')">🧬 Analisis Biologi</button>
+            </div>
+
+            <!-- ===== ANALISIS FISIKA ===== -->
+            <div id="physics" class="tab-panel active">
+                <div class="learning-module">
+                    <h3>📊 Dampak Parameter Fisika Perairan</h3>
+                    
+                    <div class="physics-intro">
+                        <p><strong>Mekanisme Gangguan:</strong> Aktivitas pencarian pakan ikan sapu-sapu melalui metode pengisapan substrat (bioturbasi) memicu resuspensi sedimen halus ke kolom air, mengubah sifat fisika perairan secara drastis.</p>
+                    </div>
+
+                    <!-- Turbiditas -->
+                    <div class="impact-card physics-card">
+                        <div class="impact-header">
+                            <h4>🌊 Turbiditas & Padatan Tersuspensi (TSS)</h4>
+                            <span class="severity danger">Dampak Tinggi</span>
+                        </div>
+                        <div class="two-column">
+                            <div class="column">
+                                <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=250&fit=crop" alt="Kekeruhan air" class="impact-image">
+                            </div>
+                            <div class="column">
+                                <div class="parameter-box">
+                                    <h5>📈 Data Perubahan</h5>
+                                    <table class="parameter-table">
+                                        <tr>
+                                            <td><strong>Kondisi Normal</strong></td>
+                                            <td>15-25 NTU</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Dengan Sapu-Sapu</strong></td>
+                                            <td>50-100 NTU</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Peningkatan</strong></td>
+                                            <td><strong>200-400%</strong></td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div class="mechanism-box">
+                                    <h5>⚙️ Mekanisme Kejadian</h5>
+                                    <ol>
+                                        <li>Ikan mencari pakan di dasar dengan menghisap substrat</li>
+                                        <li>Sedimen halus (clay, silt) terangkat ke kolom air</li>
+                                        <li>Terbentuk suspensi partikel yang tidak mengendap segera</li>
+                                        <li>Kekeruhan meningkat hingga level ekstrem</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="consequence-box">
+                            <h5>⚠️ Konsekuensi Ekologis</h5>
+                            <ul>
+                                <li><strong>Pengurangan Zona Fotik:</strong> Penetrasi cahaya berkurang 30-50%</li>
+                                <li><strong>Hambatan Fotosintesis:</strong> Penurunan produktivitas fitoplankton hingga 40%</li>
+                                <li><strong>Gangguan Perilaku:</strong> Ikan lokal kesulitan mencari pakan visual</li>
+                                <li><strong>Stress Fisiologis:</strong> Ikan lokal mengalami hyperventilation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Penetrasi Cahaya -->
+                    <div class="impact-card physics-card">
+                        <div class="impact-header">
+                            <h4>☀️ Penetrasi Cahaya & Transmisi Optik</h4>
+                            <span class="severity warning">Dampak Sedang</span>
+                        </div>
+                        
+                        <div class="light-analysis">
+                            <div class="light-chart">
+                                <h5>Perubahan Profil Cahaya (Kedalaman)</h5>
+                                <svg viewBox="0 0 400 300" class="depth-chart">
+                                    <defs>
+                                        <linearGradient id="waterGrad" x1="0%" y1="0%" x2="100%">
+                                            <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#001a4d;stop-opacity:1" />
+                                        </linearGradient>
+                                    </defs>
+                                    <!-- Garis Normal -->
+                                    <line x1="50" y1="20" x2="50" y2="280" stroke="#228B22" stroke-width="2"/>
+                                    <text x="30" y="150" font-size="12">Kedalaman</text>
+                                    
+                                    <!-- Kurva Normal -->
+                                    <path d="M 50 20 Q 150 50, 150 280" stroke="#228B22" stroke-width="3" fill="none" opacity="0.7"/>
+                                    <text x="160" y="40">Normal (%):</text>
+                                    <text x="160" y="55" font-size="12">100% permukaan</text>
+                                    
+                                    <!-- Kurva Sapu-Sapu -->
+                                    <path d="M 50 20 Q 100 40, 100 280" stroke="#FF6347" stroke-width="3" fill="none" opacity="0.7"/>
+                                    <text x="160" y="90">Dengan Sapu-Sapu (%):</text>
+                                    <text x="160" y="105" font-size="12">50% permukaan</text>
+                                    
+                                    <!-- Label -->
+                                    <text x="50" y="300" font-size="12" text-anchor="middle">Transmisi Cahaya →</text>
+                                </svg>
+                            </div>
+
+                            <div class="light-data">
+                                <h5>📊 Data Transmisi Cahaya</h5>
+                                <div class="data-grid">
+                                    <div class="data-item">
+                                        <strong>Kedalaman 0 m:</strong>
+                                        <p>Normal: 100% | Sapu-Sapu: 50%</p>
+                                    </div>
+                                    <div class="data-item">
+                                        <strong>Kedalaman 2 m:</strong>
+                                        <p>Normal: 70% | Sapu-Sapu: 15%</p>
+                                    </div>
+                                    <div class="data-item">
+                                        <strong>Kedalaman 4 m:</strong>
+                                        <p>Normal: 30% | Sapu-Sapu: <2%</p>
+                                    </div>
+                                    <div class="data-item">
+                                        <strong>Aphotic Zone:</strong>
+                                        <p>Normal: >5 m | Sapu-Sapu: <2 m</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="photic-consequence">
+                            <h5>🌱 Dampak pada Produsen Primer</h5>
+                            <ul>
+                                <li>Zona fotik menyusut drastis (dari >5m menjadi <2m)</li>
+                                <li>Fitoplankton kehilangan sumber energi (cahaya)</li>
+                                <li>Makrofita air terendam mengalami stress cahaya</li>
+                                <li>Produktivitas primer turun 40-60%</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Suhu & Struktur Thermal -->
+                    <div class="impact-card physics-card">
+                        <div class="impact-header">
+                            <h4>🌡️ Suhu & Stratifikasi Termal</h4>
+                            <span class="severity low">Dampak Rendah-Sedang</span>
+                        </div>
+
+                        <div class="thermal-content">
+                            <p><strong>Efek Langsung:</strong> Aktivitas bioturbasi ikan sapu-sapu meningkatkan mixing air, yang mengubah profil termal perairan.</p>
+                            
+                            <div class="thermal-data">
+                                <h5>Perubahan Profil Termal</h5>
+                                <table class="thermal-table">
+                                    <tr>
+                                        <td><strong>Kondisi</strong></td>
+                                        <td><strong>Lapisan Epilimnion</strong></td>
+                                        <td><strong>Lapisan Termoklin</strong></td>
+                                        <td><strong>Lapisan Hipolimnion</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Normal (stratifikasi stabil)</td>
+                                        <td>20-22°C</td>
+                                        <td>Gradien curam</td>
+                                        <td>15-18°C</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dengan Sapu-Sapu (mixing tinggi)</td>
+                                        <td>20-21°C</td>
+                                        <td>Gradien landai</td>
+                                        <td>18-19°C</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="thermal-consequence">
+                                <h5>Konsekuensi:</h5>
+                                <ul>
+                                    <li>Homogenisasi kolom air mengurangi stratifikasi</li>
+                                    <li>Breakdown termoklin alami</li>
+                                    <li>Peningkatan konveksi vertikal</li>
+                                    <li>Efek pada distribusi spesies yang bersifat thermophilic</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Arus & Dinamika Sedimen -->
+                    <div class="impact-card physics-card">
+                        <div class="impact-header">
+                            <h4>💧 Arus Air & Dinamika Sedimen</h4>
+                            <span class="severity warning">Dampak Sedang</span>
+                        </div>
+
+                        <div class="sediment-content">
+                            <h5>Pengaruh Bioturbasi pada Sedimen</h5>
+                            <div class="sediment-mechanism">
+                                <div class="mech-step">
+                                    <span class="step-num">1</span>
+                                    <p><strong>Penggalian:</strong> Ikan menggali substrate hingga 10-15 cm</p>
+                                </div>
+                                <div class="mech-step">
+                                    <span class="step-num">2</span>
+                                    <p><strong>Resuspensi:</strong> Partikel halus naik ke kolom air</p>
+                                </div>
+                                <div class="mech-step">
+                                    <span class="step-num">3</span>
+                                    <p><strong>Perpindahan:</strong> Arus membawa sedimen ke zona downstream</p>
+                                </div>
+                                <div class="mech-step">
+                                    <span class="step-num">4</span>
+                                    <p><strong>Redeposisi:</strong> Gradual settling, mengubah topografi</p>
+                                </div>
+                            </div>
+
+                            <div class="sediment-data">
+                                <h5>Perubahan Struktur Sedimen</h5>
+                                <table class="sediment-table">
+                                    <tr>
+                                        <td><strong>Parameter</strong></td>
+                                        <td><strong>Normal</strong></td>
+                                        <td><strong>Dengan Sapu-Sapu</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Persentase Clay-Silt</td>
+                                        <td>30-40%</td>
+                                        <td>70-80%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Diameter Median (Md φ)</td>
+                                        <td>2.5-3.5 φ</td>
+                                        <td>4.0-5.0 φ (lebih halus)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Densitas Bulk (g/cm³)</td>
+                                        <td>1.2-1.4</td>
+                                        <td>0.8-1.0 (lebih lepas)</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== ANALISIS KIMIA ===== -->
+            <div id="chemistry" class="tab-panel">
+                <div class="learning-module">
+                    <h3>⚗️ Dampak Parameter Kimia Perairan</h3>
+                    
+                    <div class="chemistry-intro">
+                        <p><strong>Mekanisme Gangguan:</strong> Ekskresi ikan sapu-sapu dan aktivitas bioturbasi mempercepat siklus nutrien internal dari sedimen ke kolom air, mengubah komposisi kimia perairan secara signifikan.</p>
+                    </div>
+
+                    <!-- Dissolved Oxygen -->
+                    <div class="impact-card chemistry-card">
+                        <div class="impact-header">
+                            <h4>💨 Oksigen Terlarut (DO)</h4>
+                            <span class="severity danger">Dampak Tinggi</span>
+                        </div>
+
+                        <div class="two-column">
+                            <div class="column">
+                                <h5>Perubahan Konsentrasi DO</h5>
+                                <table class="do-table">
+                                    <tr>
+                                        <td><strong>Kondisi Normal</strong></td>
+                                        <td>6-8 mg/L</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Dengan Sapu-Sapu</strong></td>
+                                        <td>&lt;4 mg/L</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Status Perairan</strong></td>
+                                        <td>Hipoksik</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Toleransi Ikan Lokal</strong></td>
+                                        <td>&lt;50% spesies hidup</td>
+                                    </tr>
+                                </table>
+
+                                <div class="do-mechanism">
+                                    <h5>🔄 Proses Penurunan DO</h5>
+                                    <ol>
+                                        <li><strong>Bioturbasi:</strong> Oksidasi sedimen organik anaerob</li>
+                                        <li><strong>Dekomposisi:</strong> Bakteri heterotroph konsumsi DO</li>
+                                        <li><strong>Kekeruhan:</strong> Fotosintesis berkurang (lihat analisis Fisika)</li>
+                                        <li><strong>Stratifikasi:</strong> Hipolimnion terisolasi (anoksik)</li>
+                                        <li><strong>Hasil:</strong> Hypoxia muncul</li>
+                                    </ol>
+                                </div>
+                            </div>
+
+                            <div class="column">
+                                <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=250&fit=crop" alt="DO levels" class="impact-image">
+                                <p class="caption">Profil oksigen terlarut: Normal vs Dengan Sapu-Sapu</p>
+                            </div>
+                        </div>
+
+                        <div class="consequence-critical">
+                            <h5>🚨 Konsekuensi Kritis</h5>
+                            <ul>
+                                <li><strong>Fish Kill:</strong> Mortalitas massal pada konsentrasi <2 mg/L</li>
+                                <li><strong>Anaerobic Zones:</strong> Terbentuk dead zones di dasar</li>
+                                <li><strong>H₂S Production:</strong> Bau sulfur (rotten eggs)</li>
+                                <li><strong>Elimination:</strong> Spesies aerobic intolerant hilang</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- pH & Asiditas -->
+                    <div class="impact-card chemistry-card">
+                        <div class="impact-header">
+                            <h4>📊 Derajat Keasaman (pH)</h4>
+                            <span class="severity warning">Dampak Sedang</span>
+                        </div>
+
+                        <div class="ph-content">
+                            <div class="ph-data">
+                                <h5>Perubahan pH</h5>
+                                <table class="ph-table">
+                                    <tr>
+                                        <td><strong>Kondisi</strong></td>
+                                        <td><strong>pH</strong></td>
+                                        <td><strong>Status</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Perairan Normal (Netral)</td>
+                                        <td>6.5-7.5</td>
+                                        <td>Optimal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dengan Sapu-Sapu (Awal)</td>
+                                        <td>6.0-6.5</td>
+                                        <td>Slightly Acidic</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dengan Sapu-Sapu (Lanjut)</td>
+                                        <td>&lt;5.5</td>
+                                        <td>Acidic (Problematic)</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="ph-mechanism">
+                                <h5>Penyebab Penurunan pH</h5>
+                                <ul>
+                                    <li><strong>Asam Humat:</strong> Pelepasan dari sedimen organik</li>
+                                    <li><strong>Respiration:</strong> CO₂ → H₂CO₃ (asam karbonat)</li>
+                                    <li><strong>Nitrifikasi:</strong> NH₄⁺ → HNO₃</li>
+                                    <li><strong>H₂S:</strong> Oksidasi → H₂SO₄</li>
+                                </ul>
+                            </div>
+
+                            <div class="ph-effect">
+                                <h5>Implikasi Biologi</h5>
+                                <ul>
+                                    <li>Osmoregulasi terganggu pada ikan sensitif</li>
+                                    <li>Penurunan efisiensi kawin spesies lokal</li>
+                                    <li>Peningkatan mortalitas telur 30-40%</li>
+                                    <li>Shift komunitas ke spesies acidophilic (toleran asam)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nutrient Loading (N, P) -->
+                    <div class="impact-card chemistry-card">
+                        <div class="impact-header">
+                            <h4>🌱 Nutrien: Nitrogen & Fosfat</h4>
+                            <span class="severity danger">Dampak Tinggi</span>
+                        </div>
+
+                        <div class="nutrient-content">
+                            <h5>Eutrofikasi Perairan</h5>
+
+                            <div class="two-column">
+                                <div class="column">
+                                    <h5>Konsentrasi Nutrien</h5>
+                                    <table class="nutrient-table">
+                                        <tr>
+                                            <td><strong>Parameter</strong></td>
+                                            <td><strong>Normal</strong></td>
+                                            <td><strong>Dengan Sapu-Sapu</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total Nitrogen</td>
+                                            <td>0.5-1.0 mg/L</td>
+                                            <td>2-5 mg/L (+300%)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fosfat (PO₄³⁻)</td>
+                                            <td>0.05-0.1 mg/L</td>
+                                            <td>0.5-1.0 mg/L (+800%)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Chlorophyll-a</td>
+                                            <td>&lt;5 μg/L</td>
+                                            <td>15-30 μg/L</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div class="column">
+                                    <h5>Siklus Nutrien yang Dipercepat</h5>
+                                    <div class="nutrient-cycle">
+                                        <svg viewBox="0 0 300 250" class="cycle-diagram">
+                                            <!-- Sedimen -->
+                                            <rect x="20" y="180" width="260" height="50" fill="#8B7355" opacity="0.3"/>
+                                            <text x="150" y="210" text-anchor="middle" font-weight="bold">Sedimen (Organic Matter)</text>
+                                            
+                                            <!-- Kolom Air -->
+                                            <rect x="20" y="50" width="260" height="120" fill="#87CEEB" opacity="0.2"/>
+                                            <text x="150" y="120" text-anchor="middle" font-weight="bold">Kolom Air</text>
+                                            
+                                            <!-- Proses -->
+                                            <circle cx="80" cy="100" r="20" fill="#FF6347" opacity="0.6"/>
+                                            <text x="80" y="105" text-anchor="middle" font-size="12" fill="white">Biotur-</text>
+                                            <text x="80" y="118" text-anchor="middle" font-size="12" fill="white">basi</text>
+                                            
+                                            <circle cx="150" cy="80" r="20" fill="#32CD32" opacity="0.6"/>
+                                            <text x="150" y="85" text-anchor="middle" font-size="12" fill="white">Algal</text>
+                                            <text x="150" y="98" text-anchor="middle" font-size="12" fill="white">Bloom</text>
+                                            
+                                            <circle cx="220" cy="100" r="20" fill="#FFD700" opacity="0.6"/>
+                                            <text x="220" y="105" text-anchor="middle" font-size="10" fill="black">Decomp.</text>
+                                            <text x="220" y="118" text-anchor="middle" font-size="10" fill="black">Release</text>
+                                            
+                                            <!-- Arrows -->
+                                            <path d="M 80 130 L 80 160" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                            <path d="M 150 100 L 80 120" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                            <path d="M 220 120 L 150 100" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                            <path d="M 150 160 L 150 130" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                            
+                                            <defs>
+                                                <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                                                    <polygon points="0 0, 10 5, 0 10" fill="#333"/>
+                                                </marker>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="eutrophication-consequence">
+                                <h5>🌿 Konsekuensi Eutrofikasi</h5>
+                                <div class="consequence-grid">
+                                    <div class="cons-item">
+                                        <span class="cons-icon">🌊</span>
+                                        <p><strong>Algal Bloom:</strong> Ledakan alga (terutama Cyanobacteria)</p>
+                                    </div>
+                                    <div class="cons-item">
+                                        <span class="cons-icon">💀</span>
+                                        <p><strong>Toxic Bloom:</strong> Produksi toksin (microcystin)</p>
+                                    </div>
+                                    <div class="cons-item">
+                                        <span class="cons-icon">🌙</span>
+                                        <p><strong>Anoxic Bottom:</strong> Dasar perairan mengalami anoxia</p>
+                                    </div>
+                                    <div class="cons-item">
+                                        <span class="cons-icon">⚰️</span>
+                                        <p><strong>Dead Zones:</strong> Terbentuk zona mati bagi ikan</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BOD, COD, TOM -->
+                    <div class="impact-card chemistry-card">
+                        <div class="impact-header">
+                            <h4>🧪 Organic Load: BOD, COD, TOM</h4>
+                            <span class="severity warning">Dampak Sedang-Tinggi</span>
+                        </div>
+
+                        <div class="organic-content">
+                            <h5>Beban Bahan Organik</h5>
+                            <table class="organic-table">
+                                <tr>
+                                    <td><strong>Parameter</strong></td>
+                                    <td><strong>Definisi</strong></td>
+                                    <td><strong>Normal</strong></td>
+                                    <td><strong>Dengan Sapu-Sapu</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>BOD₅</strong></td>
+                                    <td>Biological Oxygen Demand (5 hari)</td>
+                                    <td>2-5 mg/L</td>
+                                    <td>8-15 mg/L</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>COD</strong></td>
+                                    <td>Chemical Oxygen Demand</td>
+                                    <td>10-20 mg/L</td>
+                                    <td>30-50 mg/L</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>TOM</strong></td>
+                                    <td>Total Organic Matter</td>
+                                    <td>3-8 %</td>
+                                    <td>12-20 %</td>
+                                </tr>
+                            </table>
+
+                            <p class="data-source">Sumber: Nugroho et al. (2014), Puspitasari et al. (2018)</p>
+                        </div>
+                    </div>
+
+                    <!-- Heavy Metals -->
+                    <div class="impact-card chemistry-card">
+                        <div class="impact-header">
+                            <h4>⚛️ Logam Berat & Polutan Persistren</h4>
+                            <span class="severity warning">Dampak Sedang</span>
+                        </div>
+
+                        <div class="heavy-metal-content">
+                            <p><strong>Mekanisme:</strong> Bioturbasi ikan sapu-sapu meningkatkan bioavailabilitas logam berat yang terakumulasi di sedimen.</p>
+                            
+                            <div class="hm-data">
+                                <h5>Konsentrasi Logam Berat</h5>
+                                <table class="hm-table">
+                                    <tr>
+                                        <td><strong>Logam</strong></td>
+                                        <td><strong>Normal (μg/L)</strong></td>
+                                        <td><strong>Dengan Sapu-Sapu (μg/L)</strong></td>
+                                        <td><strong>Status</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pb (Timbal)</td>
+                                        <td>&lt;10</td>
+                                        <td>20-50</td>
+                                        <td>Exceeds Standard</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cd (Kadmium)</td>
+                                        <td>&lt;1</td>
+                                        <td>3-8</td>
+                                        <td>Exceeds Standard</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cu (Tembaga)</td>
+                                        <td>10-20</td>
+                                        <td>40-80</td>
+                                        <td>Toxic to aquatic life</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="hm-concern">
+                                <h5>Perhatian Kesehatan</h5>
+                                <ul>
+                                    <li>Bioakumulasi dalam rantai makanan</li>
+                                    <li>Toxicity pada ikan lokal dan zooplankton</li>
+                                    <li>Potensi Biomagnification pada konsumen tertiary</li>
+                                    <li>Risiko kesehatan manusia (konsumsi ikan)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== ANALISIS BIOLOGI ===== -->
+            <div id="biology" class="tab-panel">
+                <div class="learning-module">
+                    <h3>🧬 Dampak Pada Struktur & Dinamika Biologi</h3>
+                    
+                    <div class="biology-intro">
+                        <p><strong>Mekanisme Gangguan:</strong> Kehadiran ikan sapu-sapu mengubah komunitas biotik melalui predasi, kompetisi, dan modifikasi habitat, yang menyebabkan penurunan drastis keanekaragaman dan perubahan struktur trofik.</p>
+                    </div>
+
+                    <!-- Biodiversity Loss -->
+                    <div class="impact-card biology-card">
+                        <div class="impact-header">
+                            <h4>📉 Penurunan Keanekaragaman Hayati</h4>
+                            <span class="severity danger">Dampak Tinggi</span>
+                        </div>
+
+                        <div class="biodiversity-content">
+                            <div class="two-column">
+                                <div class="column">
+                                    <h5>Indeks Diversitas Shannon-Wiener</h5>
+                                    <table class="diversity-table">
+                                        <tr>
+                                            <td><strong>Kondisi</strong></td>
+                                            <td><strong>H' Index</strong></td>
+                                            <td><strong>Kategori</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Perairan Normal</td>
+                                            <td>2.2-2.8</td>
+                                            <td>High Diversity</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dengan Sapu-Sapu (Awal)</td>
+                                            <td>1.5-2.0</td>
+                                            <td>Moderate Diversity</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dengan Sapu-Sapu (Lanjut)</td>
+                                            <td>&lt;1.0</td>
+                                            <td>Low Diversity</td>
+                                        </tr>
+                                    </table>
+
+                                    <div class="diversity-loss">
+                                        <h5>Penurunan Spesies Lokal</h5>
+                                        <ul>
+                                            <li><strong>Total Spesies Asli:</strong> 20-30 spesies</li>
+                                            <li><strong>Tertinggal Hidup:</strong> 5-10 spesies (25-40%)</li>
+                                            <li><strong>Spesies Punah Lokal:</strong> 10-20 spesies</li>
+                                            <li><strong>Ekstinksi Risiko Tinggi:</strong> Spesies endemik</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="column">
+                                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=250&fit=crop" alt="Biodiversity" class="impact-image">
+                                    <p class="caption">Penurunan diversitas ikan lokal</p>
+                                </div>
+                            </div>
+
+                            <div class="endangered-species">
+                                <h5>🚨 Spesies Lokal Terancam</h5>
+                                <div class="species-grid">
+                                    <div class="species-card">
+                                        <strong>Puntius binotatus</strong>
+                                        <p>Penurunan: 60-80%</p>
+                                        <span class="status critical">KRITIS</span>
+                                    </div>
+                                    <div class="species-card">
+                                        <strong>Oryza niloticus</strong>
+                                        <p>Penurunan: 40-50%</p>
+                                        <span class="status warning">TERANCAM</span>
+                                    </div>
+                                    <div class="species-card">
+                                        <strong>Clarias batrachus</strong>
+                                        <p>Penurunan: 30-40%</p>
+                                        <span class="status warning">TERANCAM</span>
+                                    </div>
+                                    <div class="species-card">
+                                        <strong>Carassius carassius</strong>
+                                        <p>Penurunan: 50-70%</p>
+                                        <span class="status critical">KRITIS</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trophic Structure Disruption -->
+                    <div class="impact-card biology-card">
+                        <div class="impact-header">
+                            <h4>🍗 Gangguan Struktur Trofik & Rantai Makanan</h4>
+                            <span class="severity danger">Dampak Tinggi</span>
+                        </div>
+
+                        <div class="trophic-content">
+                            <h5>Mekanisme Disrupsi Trofik</h5>
+
+                            <div class="trophic-chain">
+                                <div class="trophic-level">
+                                    <h6>Level I: PRODUSEN (Fitoplankton, Makrofita)</h6>
+                                    <p>Penurunan 40-60% akibat kekeruhan & competition</p>
+                                    <div class="impact-bar red" style="width: 40%;">Terganggu</div>
+                                </div>
+
+                                <div class="trophic-arrow">⬇️</div>
+
+                                <div class="trophic-level">
+                                    <h6>Level II: KONSUMEN PRIMER (Zooplankton, Herbivora)</h6>
+                                    <p>Penurunan 50-70% akibat food scarcity & predation</p>
+                                    <div class="impact-bar orange" style="width: 50%;">Sangat Terganggu</div>
+                                </div>
+
+                                <div class="trophic-arrow">⬇️</div>
+
+                                <div class="trophic-level">
+                                    <h6>Level III: KONSUMEN SECONDARY (Ikan Karnivora)</h6>
+                                    <p>Penurunan 60-80% akibat food limitation & kompetisi</p>
+                                    <div class="impact-bar darkred" style="width: 60%;">Kritis</div>
+                                </div>
+
+                                <div class="trophic-arrow">⬇️</div>
+
+                                <div class="trophic-level">
+                                    <h6>Level IV: KONSUMEN TERTIARY (Top Predators)</h6>
+                                    <p>Kehilangan 70-90% habitat & prey availability</p>
+                                    <div class="impact-bar black" style="width: 70%;">Ekstinsi Lokal</div>
+                                </div>
+                            </div>
+
+                            <div class="trophic-invasor">
+                                <h5>💪 Posisi Sapu-Sapu dalam Trofik</h5>
+                                <p><strong>Niche:</strong> Omnivora-detritivora yang juga menjadi opportunistic predator</p>
+                                <ul>
+                                    <li><strong>Kompetitor utama:</strong> Ikan herbivora & detritivora lokal</li>
+                                    <li><strong>Predator telur:</strong> Mengurangi recruitment spesies lokal 20-30%</li>
+                                    <li><strong>Allopatic competitor:</strong> Eksklusif kompetitif terhadap spesies yang similar niche</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Egg Predation & Recruitment Failure -->
+                    <div class="impact-card biology-card">
+                        <div class="impact-header">
+                            <h4>🥚 Predasi Telur & Kegagalan Rekrutmen</h4>
+                            <span class="severity danger">Dampak Tinggi</span>
+                        </div>
+
+                        <div class="egg-predation-content">
+                            <h5>Dampak Spesifik pada Reproduksi</h5>
+
+                            <div class="egg-data">
+                                <table class="egg-table">
+                                    <tr>
+                                        <td><strong>Aspek Reproduksi</strong></td>
+                                        <td><strong>Sebelum Sapu-Sapu</strong></td>
+                                        <td><strong>Dengan Sapu-Sapu</strong></td>
+                                        <td><strong>Dampak</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hatching Rate</td>
+                                        <td>70-85%</td>
+                                        <td>40-50%</td>
+                                        <td>-40-50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Larval Survival</td>
+                                        <td>60-75%</td>
+                                        <td>20-35%</td>
+                                        <td>-55-70%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Juvenile Growth Rate</td>
+                                        <td>2-3 cm/month</td>
+                                        <td>0.5-1 cm/month</td>
+                                        <td>-67-75%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Population Growth (r)</td>
+                                        <td>0.3-0.4/year</td>
+                                        <td>0.05-0.1/year</td>
+                                        <td>-75-85%</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="predation-mechanism">
+                                <h5>Mekanisme Predasi</h5>
+                                <ol>
+                                    <li><strong>Deteksi:</strong> Sapu-sapu menggunakan organ gustatory (taste buds) untuk mendeteksi telur</li>
+                                    <li><strong>Lokalisasi:</strong> Mencari di substrate, tumbuhan air, dan lubang batu</li>
+                                    <li><strong>Konsumsi:</strong> Menghisap telur dengan mulut cakram</li>
+                                    <li><strong>Nutrisi:</strong> Telur kaya protein → preferred food source</li>
+                                </ol>
+                            </div>
+
+                            <div class="recruitment-crisis">
+                                <h5>⚠️ Krisis Rekrutmen</h5>
+                                <p>Penurunan recruitment rate yang persisten mengakibatkan:</p>
+                                <ul>
+                                    <li>Populasi aging (populasi tua, tidak ada recruitment muda)</li>
+                                    <li>Breeding failure di generasi ketiga (F3)</li>
+                                    <li>Extirpasi lokal pada 5-10 tahun tanpa intervensi</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Community Composition Shift -->
+                    <div class="impact-card biology-card">
+                        <div class="impact-header">
+                            <h4>🔄 Perubahan Komposisi Komunitas</h4>
+                            <span class="severity danger">Dampak Tinggi</span>
+                        </div>
+
+                        <div class="composition-content">
+                            <h5>Dari Komunitas Asli ke Komunitas Invasif-Dominan</h5>
+
+                            <div class="composition-shift">
+                                <div class="before-after">
+                                    <div class="before">
+                                        <h6>Keadaan Awal (Pre-Invasion)</h6>
+                                        <ul class="species-composition">
+                                            <li>Puntius binotatus: 20%</li>
+                                            <li>Oryza niloticus: 18%</li>
+                                            <li>Clarias batrachus: 15%</li>
+                                            <li>Carassius carassius: 12%</li>
+                                            <li>Mastacembelus armatus: 10%</li>
+                                            <li>Anabas testudineus: 8%</li>
+                                            <li>Heteropneustes fossilis: 7%</li>
+                                            <li>Other spp: 10%</li>
+                                        </ul>
+                                        <p class="diversity-score">H' = 2.6 (High)</p>
+                                    </div>
+
+                                    <div class="arrow">→</div>
+
+                                    <div class="after">
+                                        <h6>Keadaan Akhir (Post-Invasion)</h6>
+                                        <ul class="species-composition">
+                                            <li><strong>Hypostomus plecostomus: 53.81%</strong></li>
+                                            <li>Puntius binotatus: 8%</li>
+                                            <li>Oryza niloticus: 7%</li>
+                                            <li>Clarias batrachus: 5%</li>
+                                            <li>Carassius carassius: 3%</li>
+                                            <li>Others: 22.19%</li>
+                                        </ul>
+                                        <p class="diversity-score">H' = 0.85 (Low)</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="homogenization">
+                                <h5>🌍 Biological Homogenization</h5>
+                                <p>Fenomena ini disebut sebagai "Biotic Homogenization" - proses di mana komunitas lokal yang beragam digantikan oleh komunitas monoton yang didominasi spesies invasif.</p>
+                                <ul>
+                                    <li>Loss of endemic & specialist species</li>
+                                    <li>Dominance of generalist & invasive species</li>
+                                    <li>Functional diversity loss</li>
+                                    <li>Genetic diversity erosion dalam populasi lokal</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Microbe & Pathogen -->
+                    <div class="impact-card biology-card">
+                        <div class="impact-header">
+                            <h4>🦠 Pathogen & Penyakit Ikan</h4>
+                            <span class="severity warning">Dampak Sedang</span>
+                        </div>
+
+                        <div class="pathogen-content">
+                            <p><strong>Temuan:</strong> Puspitasari et al. (2018) mendeteksi bakteri pencemar lingkungan (Coliform) pada ikan sapu-sapu asal Sungai Ciliwung.</p>
+
+                            <div class="pathogen-data">
+                                <h5>Koliform pada Sapu-Sapu</h5>
+                                <table class="pathogen-table">
+                                    <tr>
+                                        <td><strong>Lokasi</strong></td>
+                                        <td><strong>Total Koliform (CFU/g)</strong></td>
+                                        <td><strong>Fecal Coliform (CFU/g)</strong></td>
+                                        <td><strong>Status Kontaminasi</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sungai Ciliwung</td>
+                                        <td>1.2 × 10⁶</td>
+                                        <td>3.4 × 10⁵</td>
+                                        <td>Sangat Tercemar</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Danau Maninjau</td>
+                                        <td>8.5 × 10⁵</td>
+                                        <td>2.1 × 10⁵</td>
+                                        <td>Tercemar</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="pathogen-implication">
+                                <h5>Implikasi Kesehatan</h5>
+                                <ul>
+                                    <li>Sapu-sapu menjadi vektor potensial pathogen</li>
+                                    <li>Dapat mentransmisikan Aeromonas, Vibrio ke spesies lokal</li>
+                                    <li>Stress immunosuppression pada ikan lokal</li>
+                                    <li>Potensi risiko zoonosis pada konsumen (jika dimanfaatkan)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ecological Functions -->
+                    <div class="impact-card biology-card">
+                        <div class="impact-header">
+                            <h4>🔧 Hilangnya Fungsi Ekologis Kritis</h4>
+                            <span class="severity danger">Dampak Tinggi</span>
+                        </div>
+
+                        <div class="function-content">
+                            <h5>Fungsi Ekosistem yang Hilang</h5>
+                            <div class="function-grid">
+                                <div class="function-card">
+                                    <strong>1. Nutrient Cycling</strong>
+                                    <p>Ikan lokal khusus (migratory fish) yang mengatur siklus nutrien seasonal tidak lagi berperan</p>
+                                </div>
+                                <div class="function-card">
+                                    <strong>2. Seed Dispersal</strong>
+                                    <p>Ikan pemakan buah yang menyebarkan benih makrofita air hilang → struktur vegetasi berubah</p>
+                                </div>
+                                <div class="function-card">
+                                    <strong>3. Sediment Transport</strong>
+                                    <p>Kehilangan kontrol natural sediment movement → erosi & siltation tidak terkontrol</p>
+                                </div>
+                                <div class="function-card">
+                                    <strong>4. Algae Control</strong>
+                                    <p>Herbivorous fish yang mengontrol algae blooms hilang</p>
+                                </div>
+                                <div class="function-card">
+                                    <strong>5. Food Web Stability</strong>
+                                    <p>Kehilangan redundansi functional → sistem lebih fragile</p>
+                                </div>
+                                <div class="function-card">
+                                    <strong>6. Genetic Diversity</strong>
+                                    <p>Populasi lokal terisolasi & kecil → inbreeding depression</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== MITIGATION & SOLUTIONS ========== -->
+    <section id="mitigation" class="mitigation-section">
+        <div class="container">
+            <h2>🛡️ Strategi Penanggulangan & Mitigasi</h2>
+
+            <div class="solutions-grid">
+                <!-- Prevention -->
+                <div class="solution-card">
+                    <h3>🚫 Pencegahan (Prevention)</h3>
+                    <ul>
+                        <li><strong>Regulasi Impor:</strong> Larangan impor H. plecostomus</li>
+                        <li><strong>Edukasi Publik:</strong> Jangan lepaskan ikan peliharaan sembarangan</li>
+                        <li><strong>Enforcement:</strong> Monitoring aquarium trade illegally</li>
+                    </ul>
+                </div>
+
+                <!-- Management -->
+                <div class="solution-card">
+                    <h3>⚙️ Manajemen (Management)</h3>
+                    <ul>
+                        <li><strong>Mechanical Control:</strong> Hand-catching & net fishing</li>
+                        <li><strong>Barrier Installation:</strong> Prevent migration</li>
+                        <li><strong>Habitat Restoration:</strong> Increase predator habitat</li>
+                    </ul>
+                </div>
+
+                <!-- Utilization -->
+                <div class="solution-card">
+                    <h3>♻️ Pemanfaatan (Utilization)</h3>
+                    <ul>
+                        <li><strong>Food Processing:</strong> Siomay, otak-otak, batagor</li>
+                        <li><strong>Animal Feed:</strong> Pakan ternak & unggas</li>
+                        <li><strong>Fertilizer:</strong> Pupuk organik</li>
+                    </ul>
+                </div>
+
+                <!-- Restoration -->
+                <div class="solution-card">
+                    <h3>🌱 Restorasi Ekosistem</h3>
+                    <ul>
+                        <li><strong>Reintroduction:</strong> Reintroduksi spesies lokal</li>
+                        <li><strong>Habitat Enhancement:</strong> Penanaman makrofita</li>
+                        <li><strong>Water Quality:</strong> Treatment air limbah</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mitigation-detail">
+                <h3>📋 Detail Strategi Komprehensif</h3>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <h4>1️⃣ Biological Control</h4>
+                        <div class="accordion-content">
+                            <p><strong>Strategi:</strong> Introduksi predator alami untuk mengendalikan populasi sapu-sapu</p>
+                            <ul>
+                                <li>Cormorant (Cormorant phalacrocorax) - efektif di Asia Timur</li>
+                                <li>Otter reintroduction - membutuhkan habitat restoration</li>
+                                <li>Heron & fishermen assistance - community-based</li>
+                            </ul>
+                            <p><strong>Tantangan:</strong> Risiko unintended consequences</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h4>2️⃣ Chemical & Physical Control</h4>
+                        <div class="accordion-content">
+                            <p><strong>Strategi:</strong> Manipulasi kondisi perairan</p>
+                            <ul>
+                                <li><strong>Piscicide Application:</strong> Rotenone (alami dari tanaman) - selective</li>
+                                <li><strong>Temperature Management:</strong> Cold-water release (winter)</li>
+                                <li><strong>pH Manipulation:</strong> Menurunkan pH ke ekstrem (<4) - temporary</li>
+                            </ul>
+                            <p><strong>Tantangan:</strong> Berisiko membunuh non-target species</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h4>3️⃣ Mechanical Control (Most Viable)</h4>
+                        <div class="accordion-content">
+                            <p><strong>Strategi:</strong> Penangkapan manual & dengan jerat</p>
+                            <ul>
+                                <li>Fishing by local communities - income source</li>
+                                <li>Night-time hand-catching (saat aktif)</li>
+                                <li>Electro-fishing (selective untuk ukuran besar)</li>
+                                <li>Habitat-specific trapping (cave entrances)</li>
+                            </ul>
+                            <p><strong>Keunggulan:</strong> Non-toxic, community involvement</p>
+                            <p><strong>Tantangan:</strong> Labor intensive, membutuhkan kontinuitas</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h4>4️⃣ Ecosystem Restoration</h4>
+                        <div class="accordion-content">
+                            <p><strong>Strategi:</strong> Restorasi ekosistem lokal untuk resiliensi</p>
+                            <ul>
+                                <li><strong>Macrophyte Restoration:</strong> Tanam tumbuhan air native</li>
+                                <li><strong>Riparian Restoration:</strong> Restore tepi sungai</li>
+                                <li><strong>Reintroduction Program:</strong> Reintroduksi ikan lokal  bertenaga</li>
+                                <li><strong>Water Quality Improvement:</strong> Wastewater treatment</li>
+                            </ul>
+                            <p><strong>Benefit:</strong> Jangka panjang, berkelanjutan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TEAM / TIM ========== -->
+    <section id="team" class="team-section">
+        <div class="container">
+            <h2>👥 Tim SAPUVANIAN</h2>
+            <p class="team-intro">Enam mahasiswa dengan dedikasi tinggi untuk pelestarian ekosistem perairan Indonesia</p>
+
+            <div class="team-grid">
+                <!-- Anargya (Laki-laki) -->
+                <div class="team-card">
+                    <div class="member-avatar">👨‍💼</div>
+                    <h3>Anargya Ranandy</h3>
+                    <p class="role">Koordinator Proyek</p>
+                    <p class="bio">Memimpin visi dan misi SAPUVA dengan leadership yang kuat. Bertanggung jawab atas koordinasi seluruh tim dan strategic planning.</p>
+                    <div class="social-links">
+                        <a href="#">📱 Instagram</a>
+                        <a href="#">📧 Email</a>
+                    </div>
+                </div>
+
+                <!-- Dedan (Perempuan) -->
+                <div class="team-card">
+                    <div class="member-avatar">👩‍💻</div>
+                    <h3>Dedan Concetta</h3>
+                    <p class="role">Content Creator & Writer</p>
+                    <p class="bio">Menciptakan konten edukatif yang menarik dan mudah dipahami. Mengelola social media dan campaign awareness untuk masyarakat luas.</p>
+                    <div class="social-links">
+                        <a href="#">📱 Instagram</a>
+                        <a href="#">📧 Email</a>
+                    </div>
+                </div>
+
+                <!-- Elisabet (Perempuan) -->
+                <div class="team-card">
+                    <div class="member-avatar">👩‍🔬</div>
+                    <h3>Elisabet Andara</h3>
+                    <p class="role">Riset & Analisis Data</p>
+                    <p class="bio">Mengumpulkan dan menganalisis data ilmiah tentang ikan sapu-sapu. Bertanggung jawab atas validasi semua informasi yang dipresentasikan.</p>
+                    <div class="social-links">
+                        <a href="#">📱 Instagram</a>
+                        <a href="#">📧 Email</a>
+                    </div>
+                </div>
+
+                <!-- Jovianca (Perempuan) -->
+                <div class="team-card">
+                    <div class="member-avatar">👩‍🎨</div>
+                    <h3>Jovianca Yoshi</h3>
+                    <p class="role">Desain UI/UX & Visual</p>
+                    <p class="bio">Merancang pengalaman visual yang menarik dan user-friendly. Menciptakan identitas visual SAPUVA yang konsisten dan menarik.</p>
+                    <div class="social-links">
+                        <a href="#">📱 Instagram</a>
+                        <a href="#">📧 Email</a>
+                    </div>
+                </div>
+
+                <!-- Noventiana (Perempuan) -->
+                <div class="team-card">
+                    <div class="member-avatar">👩‍🌾</div>
+                    <h3>Noventiana</h3>
+                    <p class="role">Community Manager</p>
+                    <p class="bio">Membangun dan mengelola komunitas SAPUVA yang solid. Menghubungkan dengan stakeholder dan melakukan outreach ke masyarakat lokal.</p>
+                    <div class="social-links">
+                        <a href="#">📱 Instagram</a>
+                        <a href="#">📧 Email</a>
+                    </div>
+                </div>
+
+                <!-- Rosalia (Perempuan) -->
+                <div class="team-card">
+                    <div class="member-avatar">👩‍💻</div>
+                    <h3>Rosalia Sinar</h3>
+                    <p class="role">Web Developer</p>
+                    <p class="bio">Mengembangkan website SAPUVA dengan teknologi terkini. Memastikan website responsif, cepat, dan mudah diakses oleh semua kalangan.</p>
+                    <div class="social-links">
+                        <a href="#">📱 Instagram</a>
+                        <a href="#">📧 Email</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Values -->
+            <div class="team-values">
+                <h3>💚 Nilai-Nilai Tim</h3>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <h4>🎓 Integritas Ilmiah</h4>
+                        <p>Semua informasi berbasis data & penelitian yang kredibel</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>🌍 Komitmen Lingkungan</h4>
+                        <p>Dedikasi untuk pelestarian ekosistem & keanekaragaman hayati</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>🤝 Kolaborasi</h4>
+                        <p>Bekerja sama dengan stakeholder & komunitas lokal</p>
+                    </div>
+                    <div class="value-item">
+                        <h4>💡 Inovasi</h4>
+                        <p>Menciptakan solusi kreatif untuk masalah kompleks</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
     <section id="contact" class="contact-section">
         <div class="container">
             <h2>📮 Hubungi Kami</h2>
-            
+            <p class="contact-intro">Kami siap menjawab pertanyaan dan mendengarkan masukan Anda</p>
+
             <div class="contact-content">
                 <div class="contact-info">
                     <h3>Informasi Kontak</h3>
+                    
                     <div class="contact-item">
                         <span class="icon">📧</span>
                         <div>
                             <p><strong>Email</strong></p>
                             <p>sapuvanian@example.com</p>
+                            <p class="secondary">Respons dalam 24 jam</p>
                         </div>
                     </div>
+
                     <div class="contact-item">
                         <span class="icon">📱</span>
                         <div>
                             <p><strong>Instagram</strong></p>
                             <p>@sapuvanian.id</p>
+                            <p class="secondary">Follow untuk update terbaru</p>
                         </div>
                     </div>
+
+                    <div class="contact-item">
+                        <span class="icon">🎵</span>
+                        <div>
+                            <p><strong>TikTok</strong></p>
+                            <p>@sapuvanian</p>
+                            <p class="secondary">Video edukatif setiap minggu</p>
+                        </div>
+                    </div>
+
                     <div class="contact-item">
                         <span class="icon">🌐</span>
                         <div>
-                            <p><strong>Media Sosial</strong></p>
-                            <p>TikTok: @sapuvanian</p>
+                            <p><strong>Website</strong></p>
+                            <p>sapuva.web.app</p>
+                            <p class="secondary">Platform edukasi online</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="icon">📍</span>
+                        <div>
+                            <p><strong>Lokasi</strong></p>
+                            <p>Jakarta, Indonesia</p>
+                            <p class="secondary">Beroperasi di seluruh Indonesia</p>
                         </div>
                     </div>
                 </div>
 
                 <form class="contact-form">
                     <h3>Kirim Pesan</h3>
-                    <input type="text" placeholder="Nama Anda" required>
-                    <input type="email" placeholder="Email Anda" required>
-                    <textarea placeholder="Pesan Anda..." rows="5" required></textarea>
+                    
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap *</label>
+                        <input type="text" id="name" placeholder="Masukkan nama Anda" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" placeholder="Masukkan email Anda" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subjek *</label>
+                        <input type="text" id="subject" placeholder="Subjek pesan" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Pesan *</label>
+                        <textarea id="message" placeholder="Tulis pesan Anda di sini..." rows="6" required></textarea>
+                    </div>
+
                     <button type="submit" class="btn-submit">Kirim Pesan 💚</button>
+                    <p class="form-note">Kami akan segera menghubungi Anda</p>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ========== FOOTER ========== -->
     <footer class="footer">
         <div class="container">
-            <p>🐟 SAPUVA - Sapu-Sapu Awareness Project | © 2026 Tim SAPUVANIAN</p>
-            <p class="footer-note">Dibuat dengan 💛 dan 💚 untuk kelestarian ekosistem Indonesia</p>
-            <p style="font-family: 'VT323', monospace; font-size: 0.85em; margin-top: 10px; color: #7a5c4d;">
-                ✨ Powered by Indie Web Spirit ✨
+            <p>🐟 SAPUVA - Sapu-Sapu Utopia Virtual Advisor | © 2026 Tim SAPUVANIAN</p>
+            <p class="footer-note">Dibuat dengan 💛 dan 💚 untuk kelestarian ekosistem perairan Indonesia</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a> | 
+                <a href="#">Terms of Use</a> | 
+                <a href="#">Sitemap</a>
+            </div>
+            <p style="font-family: 'Courier New', monospace; font-size: 0.85em; margin-top: 10px; color: #7a5c4d;">
+                ✨ Powered by Indie Web Spirit & Scientific Integrity ✨
             </p>
         </div>
     </footer>
