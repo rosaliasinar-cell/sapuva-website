@@ -1,166 +1,511 @@
 /* ========================================
-   SAPUVA WEBSITE - COMPLETE JAVASCRIPT
-   Interactive Features, Animations & Functionality
+   SAPUVA WEBSITE - GAME SCRIPT (EDUCANDY STYLE)
+   Interactive Quiz Game dengan Scoring System
    ======================================== */
 
-// ========== 1. SMOOTH SCROLLING ========== 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const target = document.querySelector(targetId);
-        
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
+// ========== GAME DATA & CONFIGURATION ==========
+const gameQuestions = [
+    {
+        id: 1,
+        question: "Apa nama ilmiah ikan sapu-sapu?",
+        type: "multiple", // multiple, true-false, matching
+        options: [
+            { text: "Hypostomus plecostomus", correct: true },
+            { text: "Clarias batrachus", correct: false },
+            { text: "Oreochromis niloticus", correct: false },
+            { text: "Carassius auratus", correct: false }
+        ],
+        points: 10,
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Hypostomus_plecostomus.jpg/640px-Hypostomus_plecostomus.jpg"
+    },
+    {
+        id: 2,
+        question: "Berapa panjang maksimal ikan sapu-sapu?",
+        type: "multiple",
+        options: [
+            { text: "30 cm", correct: false },
+            { text: "50 cm", correct: false },
+            { text: "60 cm", correct: true },
+            { text: "80 cm", correct: false }
+        ],
+        points: 10
+    },
+    {
+        id: 3,
+        question: "Ikan sapu-sapu masuk ke Indonesia melalui apa?",
+        type: "multiple",
+        options: [
+            { text: "Sungai alami", correct: false },
+            { text: "Perdagangan ikan hias", correct: true },
+            { text: "Migrasi ikan", correct: false },
+            { text: "Program peternakan", correct: false }
+        ],
+        points: 10
+    },
+    {
+        id: 4,
+        question: "Bentuk mulut ikan sapu-sapu adalah?",
+        type: "multiple",
+        options: [
+            { text: "Mulut normal", correct: false },
+            { text: "Cakram hisap (suckermouth)", correct: true },
+            { text: "Mulut besar terbuka", correct: false },
+            { text: "Mulut kecil runcing", correct: false }
+        ],
+        points: 10
+    },
+    {
+        id: 5,
+        question: "Berapa fekunditas (jumlah telur) ikan sapu-sapu per siklus?",
+        type: "multiple",
+        options: [
+            { text: "100-500 telur", correct: false },
+            { text: "1,000-3,000 telur", correct: true },
+            { text: "5,000-10,000 telur", correct: false },
+            { text: "10,000+ telur", correct: false }
+        ],
+        points: 10
+    },
+    {
+        id: 6,
+        question: "Siklus reproduksi ikan sapu-sapu berapa lama?",
+        type: "multiple",
+        options: [
+            { text: "1-3 bulan", correct: false },
+            { text: "6-12 bulan", correct: true },
+            { text: "1-2 tahun", correct: false },
+            { text: "2-3 tahun", correct: false }
+        ],
+        points: 10
+    },
+    {
+        id: 7,
+        question: "Apa dampak utama bioturbasi ikan sapu-sapu?",
+        type: "multiple",
+        options: [
+            { text: "Meningkatkan oksigen", correct: false },
+            { text: "Resuspensi sedimen & peningkatan kekeruhan", correct: true },
+            { text: "Memperbaiki kualitas air", correct: false },
+            { text: "Menambah nutrisi", correct: false }
+        ],
+        points: 15
+    },
+    {
+        id: 8,
+        question: "Berapa persen peningkatan kekeruhan (TSS) akibat sapu-sapu?",
+        type: "multiple",
+        options: [
+            { text: "50-100%", correct: false },
+            { text: "100-150%", correct: false },
+            { text: "200-400%", correct: true },
+            { text: "500%+", correct: false }
+        ],
+        points: 15
+    },
+    {
+        id: 9,
+        question: "Tingkat penurunan biodiversitas ikan akibat ikan sapu-sapu?",
+        type: "multiple",
+        options: [
+            { text: "10-20%", correct: false },
+            { text: "40-60%", correct: true },
+            { text: "70-80%", correct: false },
+            { text: "90%+", correct: false }
+        ],
+        points: 15
+    },
+    {
+        id: 10,
+        question: "Ikan sapu-sapu memiliki respirasi tambahan berupa?",
+        type: "multiple",
+        options: [
+            { text: "Paru-paru", correct: false },
+            { text: "Labirin insang", correct: true },
+            { text: "Kulit pernapasan", correct: false },
+            { text: "Kantong udara", correct: false }
+        ],
+        points: 10
+    }
+];
 
-// ========== 2. NAVBAR ACTIVE LINK & STICKY SHADOW ==========
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
+// ========== GAME STATE ==========
+let gameState = {
+    playerName: "",
+    playerClass: "",
+    playerLanguage: "id",
+    currentQuestionIndex: 0,
+    score: 0,
+    answers: [],
+    gameStarted: false,
+    gameEnded: false,
+    startTime: null,
+    endTime: null,
+    leaderboard: JSON.parse(localStorage.getItem('sapuvaLeaderboard')) || []
+};
+
+// ========== PLAYER VERIFICATION ==========
+function verifyPlayer(event) {
+    event.preventDefault();
+
+    const playerName = document.getElementById('playerName').value.trim();
+    const playerLanguage = document.getElementById('playerLanguage').value;
+    const playerClass = document.getElementById('playerClass').value.trim();
+
+    if (!playerName || !playerLanguage || !playerClass) {
+        showNotification('⚠️ Mohon isi semua field!', 'error');
+        return;
+    }
+
+    // Set game state
+    gameState.playerName = playerName;
+    gameState.playerLanguage = playerLanguage;
+    gameState.playerClass = playerClass;
+    gameState.gameStarted = true;
+    gameState.startTime = new Date();
+
+    // Hide form, show game
+    document.getElementById('verification-form').style.display = 'none';
+    document.getElementById('gameInterface').style.display = 'block';
+
+    // Display player info
+    document.getElementById('displayName').textContent = playerName;
+    document.getElementById('displayClass').textContent = playerClass;
+
+    // Load first question
+    loadQuestion(0);
+
+    showNotification(`🎮 Selamat datang ${playerName}! Mari bermain!`, 'success');
+}
+
+// ========== LOAD QUESTION ==========
+function loadQuestion(index) {
+    if (index >= gameQuestions.length) {
+        endGame();
+        return;
+    }
+
+    const question = gameQuestions[index];
+    gameState.currentQuestionIndex = index;
+
+    const quizContainer = document.getElementById('quizContainer');
+    quizContainer.innerHTML = '';
+
+    // Card Header
+    const card = document.createElement('div');
+    card.className = 'quiz-card educandy-style';
+
+    let cardHTML = `
+        <div class="card-header">
+            <div class="question-badge">Pertanyaan ${index + 1}</div>
+            <div class="points-badge">${question.points} Poin</div>
+        </div>
+
+        <div class="card-body">
+    `;
+
+    // Add image if exists
+    if (question.image) {
+        cardHTML += `<img src="${question.image}" alt="Question image" class="question-image">`;
+    }
+
+    // Question text
+    cardHTML += `
+        <h3 class="question-text">${question.question}</h3>
+
+        <div class="options-container">
+    `;
+
+    // Options (EDUCANDY Style - Colorful Cards)
+    const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A'];
     
-    // Update shadow on scroll
-    if (window.scrollY > 50) {
-        navbar.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.2)';
+    question.options.forEach((option, i) => {
+        const isSelected = gameState.answers[index] === i;
+        cardHTML += `
+            <div class="option-card ${isSelected ? 'selected' : ''}" 
+                 style="border-color: ${colors[i % colors.length]};"
+                 onclick="selectAnswer(${index}, ${i})">
+                <div class="option-letter" style="background-color: ${colors[i % colors.length]};">
+                    ${String.fromCharCode(65 + i)}
+                </div>
+                <div class="option-text">${option.text}</div>
+            </div>
+        `;
+    });
+
+    cardHTML += `
+        </div>
+        </div>
+    `;
+
+    card.innerHTML = cardHTML;
+    quizContainer.appendChild(card);
+
+    // Update progress bar
+    updateProgress(index + 1, gameQuestions.length);
+
+    // Update button
+    const submitBtn = document.getElementById('submitBtn');
+    if (index === gameQuestions.length - 1) {
+        submitBtn.textContent = '✅ Selesai Game';
     } else {
-        navbar.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
+        submitBtn.textContent = 'Selanjutnya →';
     }
-    
-    // Update active nav link
-    updateActiveNavLink();
-});
-
-function updateActiveNavLink() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
-    
-    let currentSection = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.pageYOffset >= sectionTop - 200) {
-            currentSection = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${currentSection}`) {
-            link.classList.add('active');
-        }
-    });
 }
 
-// ========== 3. TAB SWITCHING FUNCTIONALITY ==========
-function switchTab(tabName) {
-    // Hide all tabs
-    const panels = document.querySelectorAll('.tab-panel');
-    panels.forEach(panel => {
-        panel.classList.remove('active');
+// ========== SELECT ANSWER ==========
+function selectAnswer(questionIndex, optionIndex) {
+    gameState.answers[questionIndex] = optionIndex;
+
+    // Visual feedback
+    const options = document.querySelectorAll('.option-card');
+    options.forEach((opt, i) => {
+        opt.classList.remove('selected');
+        if (i === optionIndex) {
+            opt.classList.add('selected');
+        }
     });
-    
-    // Remove active class from buttons
-    const buttons = document.querySelectorAll('.tab-btn');
-    buttons.forEach(btn => {
-        btn.classList.remove('active');
-    });
-    
-    // Show selected tab
-    const selectedTab = document.getElementById(tabName);
-    if (selectedTab) {
-        selectedTab.classList.add('active');
-    }
-    
-    // Add active class to clicked button
-    event.target.classList.add('active');
+
+    // Add animation
+    options[optionIndex].style.transform = 'scale(1.05)';
+    setTimeout(() => {
+        options[optionIndex].style.transform = 'scale(1)';
+    }, 200);
+
+    showNotification('✓ Jawaban tercatat!', 'success');
 }
 
-// Initialize first tab as active
-document.addEventListener('DOMContentLoaded', () => {
-    const firstPanel = document.querySelector('.tab-panel');
-    const firstButton = document.querySelector('.tab-btn');
-    
-    if (firstPanel && firstButton) {
-        firstPanel.classList.add('active');
-        firstButton.classList.add('active');
+// ========== NEXT QUESTION ==========
+function nextQuestion() {
+    if (gameState.answers[gameState.currentQuestionIndex] === undefined) {
+        showNotification('⚠️ Pilih jawaban terlebih dahulu!', 'error');
+        return;
     }
-});
 
-// ========== 4. ACCORDION FUNCTIONALITY ==========
-const accordionItems = document.querySelectorAll('.accordion-item h4');
+    if (gameState.currentQuestionIndex === gameQuestions.length - 1) {
+        // Last question - submit
+        submitAnswers();
+    } else {
+        loadQuestion(gameState.currentQuestionIndex + 1);
+    }
+}
 
-accordionItems.forEach(item => {
-    item.addEventListener('click', function() {
-        const content = this.nextElementSibling;
-        
-        // Close all other accordion items
-        accordionItems.forEach(other => {
-            if (other !== this) {
-                other.nextElementSibling.classList.remove('show');
+// ========== PREVIOUS QUESTION ==========
+function previousQuestion() {
+    if (gameState.currentQuestionIndex > 0) {
+        loadQuestion(gameState.currentQuestionIndex - 1);
+    } else {
+        showNotification('📌 Ini adalah pertanyaan pertama!', 'info');
+    }
+}
+
+// ========== SUBMIT ANSWERS ==========
+function submitAnswers() {
+    let score = 0;
+
+    // Calculate score
+    gameQuestions.forEach((question, index) => {
+        const selectedOptionIndex = gameState.answers[index];
+        if (selectedOptionIndex !== undefined) {
+            if (question.options[selectedOptionIndex].correct) {
+                score += question.points;
             }
-        });
-        
-        // Toggle current item
-        content.classList.toggle('show');
-    });
-});
-
-// ========== 5. CONTACT FORM HANDLING ==========
-const contactForm = document.querySelector('.contact-form');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        
-        const nameInput = this.querySelector('#name');
-        const emailInput = this.querySelector('#email');
-        const subjectInput = this.querySelector('#subject');
-        const messageInput = this.querySelector('#message');
-        
-        const name = nameInput.value.trim();
-        const email = emailInput.value.trim();
-        const subject = subjectInput.value.trim();
-        const message = messageInput.value.trim();
-        
-        // Validation
-        if (!name || !email || !subject || !message) {
-            showNotification('⚠️ Mohon isi semua field!', 'error');
-            return;
         }
-        
-        if (!isValidEmail(email)) {
-            showNotification('❌ Email tidak valid!', 'error');
-            return;
-        }
-        
-        // Success message
-        showNotification(`✅ Terima kasih ${name}! Pesan Anda telah dikirim. Kami akan menghubungi Anda segera.`, 'success');
-        
-        // Log data (in production, send to backend)
-        console.log({
-            name,
-            email,
-            subject,
-            message,
-            timestamp: new Date().toISOString()
-        });
-        
-        // Reset form
-        this.reset();
     });
+
+    gameState.score = score;
+    gameState.endTime = new Date();
+
+    // Save to leaderboard
+    saveToLeaderboard();
+
+    // Show results
+    showResults();
 }
 
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+// ========== CALCULATE SCORE ==========
+function calculateScore(score, maxScore = 100) {
+    const percentage = (score / maxScore) * 100;
+    
+    if (percentage >= 90) return { grade: 'A', emoji: '🌟' };
+    if (percentage >= 80) return { grade: 'B', emoji: '⭐' };
+    if (percentage >= 70) return { grade: 'C', emoji: '✅' };
+    if (percentage >= 60) return { grade: 'D', emoji: '⚠️' };
+    return { grade: 'F', emoji: '❌' };
 }
 
-// ========== 6. NOTIFICATION SYSTEM ==========
+// ========== SAVE TO LEADERBOARD ==========
+function saveToLeaderboard() {
+    const entry = {
+        name: gameState.playerName,
+        class: gameState.playerClass,
+        score: gameState.score,
+        date: new Date().toLocaleString('id-ID'),
+        duration: Math.round((gameState.endTime - gameState.startTime) / 1000) + 's'
+    };
+
+    gameState.leaderboard.push(entry);
+    gameState.leaderboard.sort((a, b) => b.score - a.score);
+    
+    // Keep only top 20
+    if (gameState.leaderboard.length > 20) {
+        gameState.leaderboard = gameState.leaderboard.slice(0, 20);
+    }
+
+    // Save to localStorage
+    localStorage.setItem('sapuvaLeaderboard', JSON.stringify(gameState.leaderboard));
+}
+
+// ========== SHOW RESULTS ==========
+function showResults() {
+    document.getElementById('quizContainer').style.display = 'none';
+    document.getElementById('gameInterface').querySelector('.progress-section').style.display = 'none';
+    document.getElementById('gameInterface').querySelector('.game-buttons').style.display = 'none';
+
+    const resultsCard = document.getElementById('resultsCard');
+    resultsCard.style.display = 'block';
+
+    const gradeInfo = calculateScore(gameState.score);
+    const accuracy = Math.round((gameState.score / 100) * 100);
+
+    let resultsHTML = `
+        <div class="results-content">
+            <div class="results-header">
+                <h2>${gradeInfo.emoji} Hasil Akhir ${gradeInfo.emoji}</h2>
+                <p class="player-result">Pemain: <strong>${gameState.playerName}</strong> | Kelas: <strong>${gameState.playerClass}</strong></p>
+            </div>
+
+            <div class="score-card">
+                <div class="score-number">${gameState.score}</div>
+                <div class="score-max">/ 100</div>
+                <div class="score-percentage">${accuracy}%</div>
+                <div class="score-grade">Grade: <strong>${gradeInfo.grade}</strong></div>
+            </div>
+
+            <div class="results-stats">
+                <div class="stat-item">
+                    <span class="stat-label">⏱️ Waktu:</span>
+                    <span class="stat-value">${Math.round((gameState.endTime - gameState.startTime) / 1000)}s</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">✅ Benar:</span>
+                    <span class="stat-value">${gameState.answers.filter((_, i) => gameQuestions[i].options[_]?.correct).length} / ${gameQuestions.length}</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">❌ Salah:</span>
+                    <span class="stat-value">${gameQuestions.length - gameState.answers.filter((_, i) => gameQuestions[i].options[_]?.correct).length} / ${gameQuestions.length}</span>
+                </div>
+            </div>
+
+            <div class="leaderboard-section">
+                <h3>🏆 Top 10 Leaderboard</h3>
+                <div class="leaderboard-table">
+                    ${generateLeaderboardHTML()}
+                </div>
+            </div>
+
+            <div class="results-footer">
+                <button class="btn btn-primary" onclick="resetGame()" style="width:100%; margin-top:20px;">
+                    🔄 Main Lagi
+                </button>
+                <button class="btn btn-secondary" onclick="downloadResults()" style="width:100%; margin-top:10px;">
+                    📥 Download Hasil
+                </button>
+            </div>
+        </div>
+    `;
+
+    resultsCard.innerHTML = resultsHTML;
+}
+
+// ========== GENERATE LEADERBOARD HTML ==========
+function generateLeaderboardHTML() {
+    const topScores = gameState.leaderboard.slice(0, 10);
+    let html = '';
+
+    topScores.forEach((entry, index) => {
+        const medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `#${index + 1}`;
+        html += `
+            <div class="leaderboard-row ${index === 0 ? 'winner' : ''}">
+                <span class="rank">${medal}</span>
+                <span class="name">${entry.name} <small>(${entry.class})</small></span>
+                <span class="score">${entry.score}</span>
+            </div>
+        `;
+    });
+
+    return html || '<p style="text-align:center; padding:20px;">Belum ada data</p>';
+}
+
+// ========== RESET GAME ==========
+function resetGame() {
+    gameState = {
+        playerName: "",
+        playerClass: "",
+        playerLanguage: "id",
+        currentQuestionIndex: 0,
+        score: 0,
+        answers: [],
+        gameStarted: false,
+        gameEnded: false,
+        startTime: null,
+        endTime: null,
+        leaderboard: JSON.parse(localStorage.getItem('sapuvaLeaderboard')) || []
+    };
+
+    document.getElementById('verification-form').style.display = 'block';
+    document.getElementById('gameInterface').style.display = 'none';
+    document.getElementById('quizContainer').style.display = 'block';
+    document.getElementById('resultsCard').style.display = 'none';
+    document.getElementById('playerForm').reset();
+    document.getElementById('currentScore').textContent = '0';
+
+    // Show progress bar and buttons
+    document.getElementById('gameInterface').querySelector('.progress-section').style.display = 'block';
+    document.getElementById('gameInterface').querySelector('.game-buttons').style.display = 'flex';
+
+    showNotification('🔄 Game direset! Siap untuk bermain lagi?', 'info');
+}
+
+// ========== UPDATE PROGRESS BAR ==========
+function updateProgress(current, total) {
+    const percentage = (current / total) * 100;
+    document.getElementById('progressFill').style.width = percentage + '%';
+    document.getElementById('currentQuestion').textContent = current;
+    document.getElementById('totalQuestions').textContent = total;
+}
+
+// ========== DOWNLOAD RESULTS ==========
+function downloadResults() {
+    const gradeInfo = calculateScore(gameState.score);
+    const resultsText = `
+HASIL GAME SAPUVA QUEST
+========================
+Pemain: ${gameState.playerName}
+Kelas: ${gameState.playerClass}
+Tanggal: ${new Date().toLocaleString('id-ID')}
+
+SKOR: ${gameState.score} / 100
+GRADE: ${gradeInfo.grade}
+ACCURACY: ${Math.round((gameState.score / 100) * 100)}%
+
+Waktu: ${Math.round((gameState.endTime - gameState.startTime) / 1000)} detik
+Pertanyaan Benar: ${gameState.answers.filter((_, i) => gameQuestions[i].options[_]?.correct).length} / ${gameQuestions.length}
+
+========================
+🌊 SMA Negeri 3 Semarang - SAPUVA Project
+    `;
+
+    const blob = new Blob([resultsText], { type: 'text/plain' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `SAPUVA_Result_${gameState.playerName}_${new Date().getTime()}.txt`;
+    a.click();
+
+    showNotification('📥 Hasil berhasil diunduh!', 'success');
+}
+
+// ========== NOTIFICATION SYSTEM ==========
 function showNotification(message, type = 'info') {
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
@@ -173,7 +518,7 @@ function showNotification(message, type = 'info') {
         top: 20px;
         right: 20px;
         padding: 16px 24px;
-        border-radius: 8px;
+        border-radius: 12px;
         background: ${bgColor};
         color: white;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -185,132 +530,222 @@ function showNotification(message, type = 'info') {
     
     document.body.appendChild(notification);
     
-    // Auto-remove after 3 seconds
     setTimeout(() => {
         notification.style.animation = 'slideOutRight 0.3s ease-in';
         setTimeout(() => notification.remove(), 300);
     }, 3000);
 }
 
-// Add CSS for notification animations
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideInRight {
-        from { 
-            opacity: 0; 
-            transform: translateX(100px); 
-        }
-        to { 
-            opacity: 1; 
-            transform: translateX(0); 
-        }
-    }
-    @keyframes slideOutRight {
-        from { 
-            opacity: 1; 
-            transform: translateX(0); 
-        }
-        to { 
-            opacity: 0; 
-            transform: translateX(100px); 
-        }
-    }
-`;
-document.head.appendChild(style);
-
-// ========== 7. INTERSECTION OBSERVER (SCROLL ANIMATIONS) ==========
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.animation = 'fadeIn 0.6s ease-out forwards';
-            entry.target.style.opacity = '1';
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-// Observe all animation-worthy elements
-document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll(
-        '.team-card, .learning-module, .solution-card, .stat-card, ' +
-        '.impact-card, .content-box, .morph-card, .species-card'
-    );
+// ========== TAB SWITCHING (ANALYSIS) ==========
+function switchTab(tabName) {
+    const panels = document.querySelectorAll('.tab-panel');
+    panels.forEach(panel => panel.classList.remove('active'));
     
-    animateElements.forEach(el => {
-        el.style.opacity = '0';
-        observer.observe(el);
-    });
-});
-
-// ========== 8. LAZY LOADING IMAGES ==========
-if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src || img.src;
-                img.classList.add('loaded');
-                observer.unobserve(img);
-            }
-        });
-    });
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
     
-    document.querySelectorAll('img[data-src]').forEach(img => {
-        imageObserver.observe(img);
-    });
+    const selectedTab = document.getElementById(tabName);
+    if (selectedTab) selectedTab.classList.add('active');
+    
+    event.target.classList.add('active');
 }
 
-// ========== 9. POPULATION CHART (CHART.JS SIMULATION) ==========
+// ========== LIGHT PENETRATION CHART (FIXED) ==========
 document.addEventListener('DOMContentLoaded', () => {
-    const canvas = document.getElementById('populationChart');
-    
-    if (canvas) {
-        const ctx = canvas.getContext('2d');
-        const width = canvas.offsetWidth;
-        const height = canvas.offsetHeight || 300;
-        
-        canvas.width = width;
-        canvas.height = height;
-        
-        // Simulate population growth chart
-        drawPopulationChart(ctx, width, height);
-    }
+    drawLightPenetrationChart();
+    drawNutrientChart();
+    drawPopulationChart();
 });
 
-function drawPopulationChart(ctx, width, height) {
+function drawLightPenetrationChart() {
+    const canvas = document.getElementById('lightChart');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    const width = canvas.offsetWidth;
+    const height = 300;
+    
+    canvas.width = width;
+    canvas.height = height;
+
     const padding = 40;
     const plotWidth = width - 2 * padding;
     const plotHeight = height - 2 * padding;
+
+    // Data
+    const depths = [0, 2, 4, 6, 8];
+    const normalLight = [100, 70, 30, 5, 0];
+    const sapuSapuLight = [50, 15, 2, 0, 0];
+
+    // Draw background
+    ctx.fillStyle = '#E8F4F8';
+    ctx.fillRect(0, 0, width, height);
+
+    // Draw grid
+    ctx.strokeStyle = '#D0D0D0';
+    ctx.lineWidth = 1;
+    for (let i = 0; i <= 5; i++) {
+        const y = padding + (i / 5) * plotHeight;
+        ctx.beginPath();
+        ctx.moveTo(padding, y);
+        ctx.lineTo(width - padding, y);
+        ctx.stroke();
+    }
+
+    // Draw axes
+    ctx.strokeStyle = '#333';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(padding, padding);
+    ctx.lineTo(padding, height - padding);
+    ctx.lineTo(width - padding, height - padding);
+    ctx.stroke();
+
+    // Draw Normal Light Line
+    ctx.strokeStyle = '#228B22';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    normalLight.forEach((val, i) => {
+        const x = padding + (i / (depths.length - 1)) * plotWidth;
+        const y = (height - padding) - (val / 100) * plotHeight;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+
+    // Draw Sapu-Sapu Light Line
+    ctx.strokeStyle = '#FF6347';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    sapuSapuLight.forEach((val, i) => {
+        const x = padding + (i / (depths.length - 1)) * plotWidth;
+        const y = (height - padding) - (val / 100) * plotHeight;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+
+    // Draw points
+    ctx.fillStyle = '#228B22';
+    normalLight.forEach((val, i) => {
+        const x = padding + (i / (depths.length - 1)) * plotWidth;
+        const y = (height - padding) - (val / 100) * plotHeight;
+        ctx.beginPath();
+        ctx.arc(x, y, 5, 0, Math.PI * 2);
+        ctx.fill();
+    });
+
+    ctx.fillStyle = '#FF6347';
+    sapuSapuLight.forEach((val, i) => {
+        const x = padding + (i / (depths.length - 1)) * plotWidth;
+        const y = (height - padding) - (val / 100) * plotHeight;
+        ctx.beginPath();
+        ctx.arc(x, y, 5, 0, Math.PI * 2);
+        ctx.fill();
+    });
+
+    // Draw labels
+    ctx.fillStyle = '#333';
+    ctx.font = '12px Arial';
+    ctx.textAlign = 'center';
+
+    depths.forEach((depth, i) => {
+        const x = padding + (i / (depths.length - 1)) * plotWidth;
+        ctx.fillText(depth + 'm', x, height - padding + 20);
+    });
+
+    // Legend
+    ctx.fillStyle = '#228B22';
+    ctx.fillRect(width - 200, 10, 15, 15);
+    ctx.fillStyle = '#333';
+    ctx.textAlign = 'left';
+    ctx.fillText('Normal', width - 180, 22);
+
+    ctx.fillStyle = '#FF6347';
+    ctx.fillRect(width - 200, 35, 15, 15);
+    ctx.fillStyle = '#333';
+    ctx.fillText('Dengan Sapu-Sapu', width - 180, 47);
+}
+
+function drawNutrientChart() {
+    const canvas = document.getElementById('nutrientChart');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    const width = canvas.offsetWidth;
+    const height = 250;
     
-    // Sample data
+    canvas.width = width;
+    canvas.height = height;
+
+    // Simple bar chart
+    ctx.fillStyle = '#E8F4F8';
+    ctx.fillRect(0, 0, width, height);
+
+    const data = [
+        { label: 'N (Normal)', value: 0.5, color: '#228B22' },
+        { label: 'N (Sapu)', value: 2.5, color: '#FF6347' },
+        { label: 'P (Normal)', value: 0.08, color: '#90EE90' },
+        { label: 'P (Sapu)', value: 0.75, color: '#FFB6C1' }
+    ];
+
+    const maxValue = 3;
+    const barWidth = width / data.length;
+    const padding = 40;
+
+    data.forEach((item, i) => {
+        const barHeight = (item.value / maxValue) * (height - padding);
+        const x = i * barWidth + barWidth / 4;
+        const y = height - padding - barHeight;
+
+        ctx.fillStyle = item.color;
+        ctx.fillRect(x, y, barWidth / 2, barHeight);
+
+        ctx.fillStyle = '#333';
+        ctx.font = '10px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText(item.label, x + barWidth / 4, height - 10);
+    });
+}
+
+function drawPopulationChart() {
+    const canvas = document.getElementById('populationChart');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    const width = canvas.offsetWidth;
+    const height = canvas.offsetHeight || 300;
+    
+    canvas.width = width;
+    canvas.height = height;
+
+    const padding = 40;
+    const plotWidth = width - 2 * padding;
+    const plotHeight = height - 2 * padding;
+
     const years = [0, 1, 2, 3, 4, 5];
     const populationData = [10, 25, 60, 150, 300, 600];
     const maxPopulation = Math.max(...populationData);
-    
+
     // Draw axes
     ctx.strokeStyle = '#228B22';
     ctx.lineWidth = 2;
     ctx.beginPath();
     ctx.moveTo(padding, height - padding);
-    ctx.lineTo(width - padding, height - padding); // X-axis
+    ctx.lineTo(width - padding, height - padding);
     ctx.moveTo(padding, padding);
-    ctx.lineTo(padding, height - padding); // Y-axis
+    ctx.lineTo(padding, height - padding);
     ctx.stroke();
-    
+
     // Draw data line
     ctx.strokeStyle = '#FF6347';
     ctx.lineWidth = 3;
     ctx.beginPath();
-    
+
     populationData.forEach((value, index) => {
         const x = padding + (index / (years.length - 1)) * plotWidth;
         const y = (height - padding) - (value / maxPopulation) * plotHeight;
-        
+
         if (index === 0) {
             ctx.moveTo(x, y);
         } else {
@@ -318,12 +753,12 @@ function drawPopulationChart(ctx, width, height) {
         }
     });
     ctx.stroke();
-    
-    // Draw data points
+
+    // Draw points
     populationData.forEach((value, index) => {
         const x = padding + (index / (years.length - 1)) * plotWidth;
         const y = (height - padding) - (value / maxPopulation) * plotHeight;
-        
+
         ctx.fillStyle = '#FFD700';
         ctx.beginPath();
         ctx.arc(x, y, 5, 0, Math.PI * 2);
@@ -332,186 +767,52 @@ function drawPopulationChart(ctx, width, height) {
         ctx.lineWidth = 2;
         ctx.stroke();
     });
-    
-    // Draw labels
+
+    // Labels
     ctx.fillStyle = '#333';
     ctx.font = '12px Arial';
     ctx.textAlign = 'center';
-    
+
     years.forEach((year, index) => {
         const x = padding + (index / (years.length - 1)) * plotWidth;
         ctx.fillText(year, x, height - padding + 20);
     });
-    
-    ctx.textAlign = 'right';
-    [0, 150, 300, 450, 600].forEach(value => {
-        const y = (height - padding) - (value / maxPopulation) * plotHeight;
-        ctx.fillText(value, padding - 10, y);
-    });
-    
-    // Draw axis labels
-    ctx.textAlign = 'center';
-    ctx.fillText('Tahun', width / 2, height - 5);
-    
-    ctx.save();
-    ctx.translate(15, height / 2);
-    ctx.rotate(-Math.PI / 2);
-    ctx.fillText('Populasi', 0, 0);
-    ctx.restore();
 }
 
-// ========== 10. DARK MODE TOGGLE (OPTIONAL) ==========
-function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-}
-
-// Load dark mode preference
-if (localStorage.getItem('darkMode') === 'true') {
-    document.body.classList.add('dark-mode');
-}
-
-// ========== 11. STATISTICS COUNTER ANIMATION ==========
-function animateCounter(element, target, duration = 2000) {
-    let current = 0;
-    const increment = target / (duration / 16);
-    
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            element.textContent = target;
-            clearInterval(timer);
-        } else {
-            element.textContent = Math.floor(current);
-        }
-    }, 16);
-}
-
-// Animate stat cards when visible
-const statObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting && !entry.target.dataset.animated) {
-            const h3 = entry.target.querySelector('h3');
-            const text = h3.textContent;
-            const number = parseInt(text);
-            
-            if (!isNaN(number)) {
-                animateCounter(h3, number);
-                entry.target.dataset.animated = true;
-            }
-            statObserver.unobserve(entry.target);
-        }
-    });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.stat-card').forEach(card => {
-        statObserver.observe(card);
-    });
-});
-
-// ========== 12. KEYBOARD SHORTCUTS ==========
-document.addEventListener('keydown', (e) => {
-    // Ctrl/Cmd + K untuk search (future feature)
-    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+// ========== CONTACT FORM ==========
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        console.log('Search activated');
-    }
-    
-    // Esc untuk close modals
-    if (e.key === 'Escape') {
-        const modal = document.querySelector('.modal');
-        if (modal) modal.remove();
-    }
-});
 
-// ========== 13. PRINT FRIENDLY STYLING ==========
-window.addEventListener('beforeprint', () => {
-    document.body.style.background = 'white';
-});
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value.trim();
+        const message = document.getElementById('message').value.trim();
 
-// ========== 14. CONSOLE WELCOME MESSAGE ==========
-console.clear();
-console.log('%c🐟 SAPUVA - Sapu-Sapu Utopia Virtual Advisor', 
-    'font-size: 24px; font-weight: bold; color: #228B22; text-shadow: 2px 2px 4px rgba(255,215,0,0.5);');
-console.log('%cSelamat datang! Terima kasih telah peduli dengan ekosistem perairan Indonesia 💚💛', 
-    'font-size: 14px; color: #666;');
-console.log('%c© 2026 Tim SAPUVANIAN - Edukasi & Pelestarian Ekosistem', 
-    'font-size: 12px; color: #999;');
-console.log('%cWebsite: SAPUVA | Repository: github.com/rosaliasinar-cell/sapuva-website', 
-    'font-size: 11px; color: #ccc; font-style: italic;');
+        if (!name || !email || !subject || !message) {
+            showNotification('⚠️ Mohon isi semua field!', 'error');
+            return;
+        }
 
-// ========== 15. PERFORMANCE MONITORING ==========
-window.addEventListener('load', () => {
-    const perfData = window.performance.timing;
-    const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
-    console.log(`⏱️ Page load time: ${pageLoadTime}ms`);
-});
+        showNotification(`✅ Terima kasih ${name}! Pesan Anda telah dikirim.`, 'success');
+        
+        console.log({
+            name, email, subject, message,
+            timestamp: new Date().toISOString()
+        });
 
-// ========== 16. SERVICE WORKER (PWA SUPPORT) ==========
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js').catch(err => {
-        console.log('Service Worker registration failed:', err);
+        this.reset();
     });
 }
 
-// ========== 17. MOBILE MENU TOGGLE ==========
-function toggleMobileMenu() {
-    const navLinks = document.querySelector('.nav-links');
-    if (navLinks) {
-        navLinks.style.display = navLinks.style.display === 'none' ? 'flex' : 'none';
-    }
-}
-
-// ========== 18. EXPORT TO PDF (OPTIONAL - REQUIRES LIBRARY) ==========
-function downloadPageAsPDF() {
-    // Requires html2pdf library
-    // const element = document.body;
-    // html2pdf().save(element);
-    showNotification('📄 Feature untuk download PDF akan segera tersedia!', 'info');
-}
-
-// ========== 19. SHARE TO SOCIAL MEDIA ==========
-function shareToSocial(platform) {
-    const title = 'SAPUVA - Sapu-Sapu Utopia Virtual Advisor';
-    const url = window.location.href;
-    const text = 'Belajar tentang ekosistem perairan & dampak ikan sapu-sapu!';
-    
-    let shareUrl = '';
-    
-    switch(platform) {
-        case 'twitter':
-            shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
-            break;
-        case 'facebook':
-            shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-            break;
-        case 'whatsapp':
-            shareUrl = `https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`;
-            break;
-    }
-    
-    if (shareUrl) {
-        window.open(shareUrl, '_blank');
-    }
-}
-
-// ========== 20. INITIALIZATION ==========
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('✅ SAPUVA Website fully initialized');
-    updateActiveNavLink();
-    
-    // Smooth scroll for browser support
-    if (!('scrollBehavior' in document.documentElement.style)) {
-        console.warn('Smooth scroll not supported in this browser');
-    }
-});
-
-// ========== HELPER: Copy to Clipboard ==========
-function copyToClipboard(text) {
-    navigator.clipboard.writeText(text).then(() => {
-        showNotification('✅ Copied to clipboard!', 'success');
-    }).catch(err => {
-        console.error('Failed to copy:', err);
+// ========== SMOOTH SCROLLING ==========
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
     });
-}
+});
