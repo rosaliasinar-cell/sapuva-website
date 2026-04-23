@@ -1,14 +1,11 @@
-sapuva-website/
-│
-├── 📄 index.html          # File HTML utama (LENGKAP dengan game)
-├── 🎨 styles.css          # Stylesheet komprehensif (EDUCANDY style)
-├── ⚙️  script.js          # Logic & game functionality
-├── 📖 README.md           # Dokumentasi ini
-│
-├── 📁 assets/             # (Opsional)
-│   ├── images/
-│   ├── icons/
-│   └── fonts/
-│
-└── 📁 data/               # (Opsional)
-    └── leaderboard.json   # Backup leaderboard
+├── index.html          # Halaman utama & struktur website
+├── css/
+│   ├── style.css       # Styling utama & variabel warna
+│   └── game.css        # Desain UI khusus untuk SAPUVA Quest
+├── js/
+│   ├── main.js         # Logika navigasi, tab, & interaksi UI
+│   └── game.js         # Engine game, scoring, & fungsi download PNG
+├── assets/
+│   ├── img/            # Galeri foto ikan & grafik analisis
+│   └── icons/          # Ikon navigasi
+└── README.md           # Dokumentasi proyek
