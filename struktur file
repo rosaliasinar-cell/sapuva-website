@@ -1,0 +1,14 @@
+sapuva-website/
+│
+├── 📄 index.html          # File HTML utama (LENGKAP dengan game)
+├── 🎨 styles.css          # Stylesheet komprehensif (EDUCANDY style)
+├── ⚙️  script.js          # Logic & game functionality
+├── 📖 README.md           # Dokumentasi ini
+│
+├── 📁 assets/             # (Opsional)
+│   ├── images/
+│   ├── icons/
+│   └── fonts/
+│
+└── 📁 data/               # (Opsional)
+    └── leaderboard.json   # Backup leaderboard
