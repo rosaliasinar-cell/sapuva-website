@@ -44,7 +44,6 @@ Menjadi platform informasi terpercaya yang meningkatkan kesadaran masyarakat ten
 6. 🌍 Mendukung keberlanjutan perairan tawar Indonesia
 
 ---
-
 ## ✨ Fitur Utama
 
 ### 1. *Informasi Komprehensif*
