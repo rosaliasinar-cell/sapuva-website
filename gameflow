@@ -1,0 +1,27 @@
+┌─────────────────────────────────────────┐
+│ 1. VERIFIKASI IDENTITAS                 │
+│    ├─ Input Nama                        │
+│    ├─ Pilih Bahasa (ID/EN)              │
+│    └─ Input Kelas                       │
+└──────────────┬──────────────────────────┘
+               │
+               ▼
+┌─────────────────────────────────────────┐
+│ 2. MULAI GAME                           │
+│    ├─ Player Info Bar                   │
+│    ├─ 10 Quiz Questions                 │
+│    ├─ EDUCANDY-style cards              │
+│    ├─ Progress bar & navigation         │
+│    └─ Real-time scoring                 │
+└──────────────┬──────────────────────────┘
+               │
+               ▼
+┌─────────────────────────────────────────┐
+│ 3. HASIL & LEADERBOARD                  │
+│    ├─ Final Score                       │
+│    ├─ Grade (A-F)                       │
+│    ├─ Accuracy %                        │
+│    ├─ Top 10 Leaderboard                │
+│    ├─ Download Hasil                    │
+│    └─ Main Lagi (Reset)                 │
+└─────────────────────────────────────────┘
