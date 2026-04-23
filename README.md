@@ -204,6 +204,54 @@ Ikan ini masuk ke Indonesia melalui *perdagangan ikan hias (1980-an)* dan berkem
 - ♿ Accessible UI/UX
 
 ---
+## 🛠️ Teknologi
+
+### Tech Stack
+- *Frontend:* HTML5, CSS3, JavaScript (Vanilla)
+- *Design System:* Custom CSS dengan CSS Variables
+- *Hosting:* Vercel
+- *Version Control:* Git & GitHub
+- *Icons & Media:* SVG, PNG berkualitas tinggi
+- *Responsiveness:* Mobile-first approach
+
+### Browser Support
+- ✅ Chrome/Chromium (latest)
+- ✅ Firefox (latest)
+- ✅ Safari (latest)
+- ✅ Edge (latest)
+- ✅ Mobile browsers (iOS Safari, Chrome Mobile)
+
+### Performance Metrics
+- ⚡ Page load time: < 2 seconds
+- 📱 Mobile-optimized
+- 🎨 Smooth animations & transitions
+- ♿ WCAG 2.1 AA accessibility compliant
+
+---
+
+## 🚀 Cara Menggunakan
+
+### Akses Website
+1. *Online:* https://sapuva-website.vercel.app
+2. *Repository:* https://github.com/rosaliasinar-cell/sapuva-website
+
+### Navigasi Website
+- *Beranda* - Gambaran umum & statistik
+- *Tentang* - Latar belakang & konteks permasalahan
+- *Bioekologi* - Informasi lengkap ikan sapu-sapu
+- *Analisis* - Analisis fisika, kimia, biologi (tab-based)
+- *Solusi* - Strategi mitigasi & pengendalian
+- *Tim* - Profil tim pengembang
+- *Kontak* - Form hubungi & informasi kontak
+
+### Fitur Interaktif
+- 🔍 *Search navigasi* dengan smooth scrolling
+- 🔄 *Tab switching* untuk analisis multidimensi
+- 📋 *Accordion* untuk detail strategi
+- 📧 *Contact form* dengan validasi
+- 📱 *Responsive design* untuk semua ukuran layar
+
+---
 
 ## 📥 Instalasi
 
@@ -211,13 +259,6 @@ Ikan ini masuk ke Indonesia melalui *perdagangan ikan hias (1980-an)* dan berkem
 - Browser modern
 - Text Editor (VS Code, Sublime, dll)
 - Git (opsional)
-
-### **Langkah-Langkah**
-
-#### **1. Clone Repository**
-```bash
-git clone https://github.com/rosaliasinar-cell/sapuva-website.git
-cd sapuva-website
 
 ---
 
