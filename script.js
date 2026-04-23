@@ -1,5 +1,5 @@
 /* ========================================
-   SAPUVA WEBSITE - GAME SCRIPT (EDUCANDY STYLE)
+   SAPUVA WEBSITE - GAME 
    Interactive Quiz Game dengan Scoring System
    ======================================== */
 
