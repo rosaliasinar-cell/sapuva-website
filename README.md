@@ -157,18 +157,6 @@ Ikan ini masuk ke Indonesia melalui *perdagangan ikan hias (1980-an)* dan berkem
 3. *Dampak Fisika:* Bagaimana faktor fisika perairan (arus, suhu, kekeruhan) mempengaruhi penyebaran dan dominasi populasi?
 
 ---
-## 👥 Tim Pengembang
-
-### SAPUVANIAN TEAM (2026)
-
-| No. | Nama | Peran | Kontribusi |
-|-----|------|-------|-----------|
-| 1 | *Anargya Ranandy* | Koordinator Proyek | Strategic planning, project leadership, data validation |
-| 2 | *Dedan Concetta* | Content Creator & Writer | Educational content creation, social media management |
-| 3 | *Elisabet Andara* | Riset & Analisis Data | Scientific research, data analysis, literature review |
-| 4 | *Jovianca Yoshi* | Desain UI/UX | Visual design, user interface, branding |
-| 5 | *Noventiana* | Community Manager | Community building, stakeholder engagement, outreach |
-| 6 | *Rosalia Sinar* | Web Developer | Website development, frontend/backend, deployment |
 
 ### Nilai-Nilai Tim
 - 🎓 *Integritas Ilmiah* - Semua informasi berbasis data & riset kredibel
@@ -260,6 +248,19 @@ Ikan ini masuk ke Indonesia melalui *perdagangan ikan hias (1980-an)* dan berkem
 - Text Editor (VS Code, Sublime, dll)
 - Git (opsional)
 
+  
+## 👥 Tim Pengembang
+
+### SAPUVANIAN TEAM (2026)
+
+| No. | Nama | Peran | Kontribusi |
+|-----|------|-------|-----------|
+| 1 | *Anargya Ranandy* | Koordinator Proyek | Strategic planning, project leadership, data validation |
+| 2 | *Dedan Concetta* | Content Creator & Writer | Educational content creation, social media management |
+| 3 | *Elisabet Andara* | Riset & Analisis Data | Scientific research, data analysis, literature review |
+| 4 | *Jovianca Yoshi* | Desain UI/UX | Visual design, user interface, branding |
+| 5 | *Noventiana* | Community Manager | Community building, stakeholder engagement, outreach |
+| 6 | *Rosalia Sinar* | Web Developer | Website development, frontend/backend, deployment |
 ---
 
 ## 📂 Struktur Website
