@@ -474,22 +474,117 @@ function updateProgress(current, total) {
     document.getElementById('totalQuestions').textContent = total;
 }
 
-// ========== DOWNLOAD RESULTS ==========
+// ========== DOWNLOAD RESULTS AS PNG (COLORFUL GAME UI) ==========
 function downloadResults() {
+    // Membuat elemen canvas sementara
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    // Set ukuran canvas (Portrait HD)
+    canvas.width = 600;
+    canvas.height = 800;
+
     const gradeInfo = calculateScore(gameState.score);
-    const resultsText = `
-HASIL GAME SAPUVA QUEST
-========================
-Pemain: ${gameState.playerName}
-Kelas: ${gameState.playerClass}
-Tanggal: ${new Date().toLocaleString('id-ID')}
+    const duration = Math.round((gameState.endTime - gameState.startTime) / 1000);
+    const correctAns = gameState.answers.filter((_, i) => gameQuestions[i].options[_]?.correct).length;
 
-SKOR: ${gameState.score} / 100
-GRADE: ${gradeInfo.grade}
-ACCURACY: ${Math.round((gameState.score / 100) * 100)}%
+    // 1. BACKGROUND - Gradient Warna Teal/Aqua (Tema SAPUVA)
+    const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+    gradient.addColorStop(0, '#1a5f7a'); // Biru Tua
+    gradient.addColorStop(1, '#00d2ff'); // Biru Muda
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-Waktu: ${Math.round((gameState.endTime - gameState.startTime) / 1000)} detik
-Pertanyaan Benar: ${gameState.answers.filter((_, i) => gameQuestions[i].options[_]?.correct).length} / ${gameQuestions.length}
+    // 2. AKSEN DEKORATIF (Lingkaran transparan)
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+    ctx.beginPath(); ctx.arc(550, 50, 150, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(50, 750, 100, 0, Math.PI * 2); ctx.fill();
+
+    // 3. MAIN CARD (Kotak Putih Transparan)
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+    ctx.roundRect(50, 100, 500, 600, 30);
+    ctx.fill();
+
+    // 4. HEADER - JUDUL
+    ctx.fillStyle = '#1a5f7a';
+    ctx.font = 'bold 36px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('SAPUVA QUEST', canvas.width / 2, 170);
+    
+    ctx.font = '18px Arial';
+    ctx.fillStyle = '#555';
+    ctx.fillText('MISSION COMPLETE', canvas.width / 2, 200);
+
+    // Garis Pemisah
+    ctx.strokeStyle = '#eee';
+    ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(100, 230); ctx.lineTo(500, 230); ctx.stroke();
+
+    // 5. INFO PEMAIN
+    ctx.textAlign = 'left';
+    ctx.fillStyle = '#333';
+    ctx.font = 'bold 20px Arial';
+    ctx.fillText(`Player: ${gameState.playerName}`, 100, 280);
+    ctx.fillText(`Class : ${gameState.playerClass}`, 100, 310);
+
+    // 6. SCORE CIRCLE (Bagian Tengah)
+    const centerX = canvas.width / 2;
+    const centerY = 440;
+    
+    // Lingkaran luar skor
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, 80, 0, Math.PI * 2);
+    ctx.fillStyle = '#f8f9fa';
+    ctx.fill();
+    ctx.strokeStyle = '#00d2ff';
+    ctx.lineWidth = 10;
+    ctx.stroke();
+
+    // Teks Skor
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#1a5f7a';
+    ctx.font = 'bold 50px Arial';
+    ctx.fillText(gameState.score, centerX, centerY + 10);
+    ctx.font = '16px Arial';
+    ctx.fillText('POINTS', centerX, centerY + 35);
+
+    // 7. STATS (Bawah Skor)
+    ctx.font = 'bold 22px Arial';
+    ctx.fillStyle = '#2d3436';
+    ctx.fillText(`Grade: ${gradeInfo.grade}`, centerX, 570);
+
+    ctx.font = '16px Arial';
+    ctx.fillStyle = '#636e72';
+    ctx.fillText(`Accuracy: ${Math.round((gameState.score / 100) * 100)}%`, centerX, 600);
+    ctx.fillText(`Time: ${duration}s | Correct: ${correctAns}/${gameQuestions.length}`, centerX, 630);
+
+    // 8. FOOTER (Tanggal)
+    ctx.font = 'italic 14px Arial';
+    ctx.fillStyle = 'white';
+    ctx.fillText(`Generated on: ${new Date().toLocaleString('id-ID')}`, canvas.width / 2, 750);
+
+    // 9. PROSES DOWNLOAD
+    const link = document.createElement('a');
+    link.download = `SapuvasQuest_Result_${gameState.playerName}.png`;
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+}
+
+// Polyfill untuk roundRect jika browser lama
+if (!CanvasRenderingContext2D.prototype.roundRect) {
+    CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
+        if (w < 2 * r) r = w / 2;
+        if (h < 2 * r) r = h / 2;
+        this.beginPath();
+        this.moveTo(x + r, y);
+        this.arcTo(x + w, y, x + w, y + h, r);
+        this.arcTo(x + w, y + h, x, y + h, r);
+        this.arcTo(x, y + h, x, y, r);
+        this.arcTo(x, y, x + w, y, r);
+        this.closePath();
+        return this;
+    }
+}
 
 ========================
 🌊 SMA Negeri 3 Semarang - SAPUVA Project
