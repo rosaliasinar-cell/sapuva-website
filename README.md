@@ -47,10 +47,6 @@ Menjadi platform informasi terpercaya yang meningkatkan kesadaran masyarakat ten
 
 ## ✨ Fitur Utama
 
----
-
-## ✨ Fitur Utama
-
 ### 1. *Informasi Komprehensif*
 - ✅ Bioekologi lengkap ikan sapu-sapu (taksonomi, morfologi, reproduksi, perilaku)
 - ✅ Sejarah invasi biologis di Indonesia
