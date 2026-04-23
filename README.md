@@ -145,8 +145,3 @@ cd sapuva-website
 ---
 
 ## 📂 Struktur Website
-sapuva-website/
-├── 📄 index.html          # HTML utama (LENGKAP dengan game)
-├── 🎨 styles.css          # Stylesheet komprehensif
-├── ⚙️  script.js          # Logic & game functionality
-└── 📖 README.md           # Dokumentasi ini
