@@ -142,6 +142,9 @@ Menjadi platform informasi terpercaya yang meningkatkan kesadaran masyarakat ten
 git clone https://github.com/rosaliasinar-cell/sapuva-website.git
 cd sapuva-website
 
+---
+
+## 📂 Struktur Website
 sapuva-website/
 ├── 📄 index.html          # HTML utama (LENGKAP dengan game)
 ├── 🎨 styles.css          # Stylesheet komprehensif
