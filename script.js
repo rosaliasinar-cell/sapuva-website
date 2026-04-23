@@ -16,7 +16,7 @@ const gameQuestions = [
             { text: "Carassius auratus", correct: false }
         ],
         points: 10,
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Hypostomus_plecostomus.jpg/640px-Hypostomus_plecostomus.jpg"
+        image: "https://www.alodokter.com/ikan-sapu-sapu-ini-kandungan-gizi-dan-manfaatnya-untuk-kesehatan"
     },
     {
         id: 2,
