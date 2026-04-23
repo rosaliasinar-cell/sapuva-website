@@ -14,14 +14,18 @@
 
 - [Tentang Proyek](#tentang-proyek)
 - [Fitur Utama](#fitur-utama)
+- [Latar Belakang Ilmiah](#latar-belakang-ilmiah)
 - [Teknologi](#teknologi)
 - [Instalasi](#instalasi)
 - [Struktur File](#struktur-file)
 - [Panduan Penggunaan](#panduan-penggunaan)
+- [Struktur Website](#struktur-website)
 - [Fitur Game](#fitur-game)
+- [Analisis Ilmiah](#analisis-ilmiah)
+- [Referensi](#referensi)
+- [Kontribusi](#kontribusi)
 - [Tim Pengembang](#tim-pengembang)
 - [Lisensi](#lisensi)
-
 ---
 
 ## 🎯 Tentang Proyek
@@ -43,37 +47,64 @@ Menjadi platform informasi terpercaya yang meningkatkan kesadaran masyarakat ten
 
 ## ✨ Fitur Utama
 
-### 1. **📖 Informasi Komprehensif**
+---
+
+## ✨ Fitur Utama
+
+### 1. *Informasi Komprehensif*
 - ✅ Bioekologi lengkap ikan sapu-sapu (taksonomi, morfologi, reproduksi, perilaku)
 - ✅ Sejarah invasi biologis di Indonesia
-- ✅ Gambar dan data visual yang akurat (diperbaiki dari versi sebelumnya)
-- ✅ Informasi lokasi: **SMA Negeri 3 Semarang**
+- ✅ Gambar dan data visual yang akurat
 
-### 2. **🔬 Analisis Multidimensi (Tab-Based)**
-#### A. **Analisis Fisika Perairan**
-- 🌊 Turbiditas & Padatan Tersuspensi (TSS)
-- ☀️ Penetrasi Cahaya & Transmisi Optik - **FIXED ✓**
-- 🌡️ Suhu & Stratifikasi Termal
-- 💧 Arus Air & Dinamika Sedimen
+### 2. *Analisis Multidimensi*
+- 📊 *Analisis Fisika Perairan*
+  - Turbiditas & padatan tersuspensi (TSS)
+  - Penetrasi cahaya & zona fotik
+  - Suhu & stratifikasi termal
+  - Arus air & dinamika sedimen
 
-#### B. **Analisis Kimia Perairan**
-- 💨 Oksigen Terlarut (DO)
-- 📊 Derajat Keasaman (pH)
-- 🌱 Nutrien Loading (Nitrogen & Fosfat)
-- 🧪 Beban Bahan Organik (BOD, COD, TOM)
-- ⚛️ Logam Berat & Polutan Persistren
+- ⚗️ *Analisis Kimia Perairan*
+  - Oksigen terlarut (DO) & hipoksia
+  - Derajat keasaman (pH)
+  - Nutrient loading (Nitrogen & Fosfat)
+  - Beban bahan organik (BOD, COD, TOM)
+  - Logam berat & polutan persistren
 
-#### C. **Analisis Biologi Perairan**
-- 📉 Penurunan Keanekaragaman Hayati
-- 🍗 Gangguan Struktur Trofik & Rantai Makanan
-- 🥚 Predasi Telur & Kegagalan Rekrutmen
+- 🧬 *Analisis Biologi Perairan*
+  - Penurunan keanekaragaman hayati (Shannon-Wiener Index)
+  - Gangguan struktur trofik & rantai makanan
+  - Predasi telur & kegagalan rekrutmen
+  - Perubahan komposisi komunitas (biotic homogenization)
+  - Pathogen & penyakit ikan
 
-### 3. **📊 Data Statistik Lengkap**
-- 📈 Dominasi hasil tangkapan: **53.81%**
-- 📉 Penurunan biodiversitas: **40-60%**
-- 🐟 Biomassa total: **70-80%**
-- 🥚 Fekunditas: **1000-3000 telur/siklus**
-- 🌡️ Toleransi suhu: **22-30°C**
+### 3. *Data Statistik Lengkap*
+- 📈 Dominasi hasil tangkapan: *53.81%*
+- 📉 Penurunan biodiversitas: *40-60%*
+- 🐟 Biomassa total: *70-80%*
+- 🥚 Fekunditas: *1000-3000 telur/siklus*
+- 🌡️ Toleransi suhu: *22-30°C*
+
+### 4. *Strategi Mitigasi & Solusi*
+- 🚫 Pencegahan (Prevention)
+- ⚙️ Manajemen (Management)
+- ♻️ Pemanfaatan (Utilization)
+- 🌱 Restorasi Ekosistem (Restoration)
+
+### 5. *Interface Interaktif*
+- 🔄 Tab switching untuk analisis fisika, kimia, biologi
+- 📋 Accordion ekspandable untuk detail strategi
+- 📊 Chart & visualisasi data
+- 📱 Responsive design untuk semua perangkat
+- ⚡ Smooth scrolling & animasi menarik
+
+### 6. *Fitur Edukasi*
+- 📚 Learning modules terstruktur
+- 🎯 Info boxes & callouts untuk poin penting
+- 🖼️ Galeri gambar berkualitas tinggi dengan sitasi
+- 📋 Tabel data komprehensif
+- 🔗 Referensi ilmiah lengkap
+
+---
 
 ### 4. **🎮 Game Edukasi Interaktif - SAPUVA Quest**
 - 🎯 Verifikasi Identitas (Nama, Bahasa, Kelas)
@@ -98,6 +129,52 @@ Menjadi platform informasi terpercaya yang meningkatkan kesadaran masyarakat ten
 - Galeri gambar berkualitas tinggi
 - Tabel data komprehensif
 - Referensi ilmiah lengkap
+
+---
+## 📚 Latar Belakang Ilmiah
+
+### Konteks Ekosistem Perairan
+
+Perairan merupakan kesatuan utuh yang terdiri dari *komponen fisika, kimia, dan biologi*. Keseimbangan ketiga komponen ini menjadi indikator kritis kesehatan ekosistem. Ketika salah satu mengalami ketimpangan, seluruh sistem terganggu.
+
+### Krisis Invasi Biologis
+
+Meledaknya populasi ikan sapu-sapu di berbagai perairan Indonesia (Sungai Citarum, Danau Maninjau, dll.) menjadi kasus invasi biologis yang tidak terkendali. Spesies ini menunjukkan dominasi absolut mencapai *53.81% dari total hasil tangkapan*.
+
+### Mekanisme Invasif
+
+Ikan ini masuk ke Indonesia melalui *perdagangan ikan hias (1980-an)* dan berkembang menjadi spesies invasif karena:
+- Daya tahan tinggi terhadap air tercemar
+- Sistem respirasi tambahan (labirin insang)
+- Adaptasi luas terhadap fluktuasi suhu (22-30°C) dan pH (6-8)
+- *Ketiadaan predator alami*
+- Reproduksi cepat (6-12 bulan/siklus)
+
+### Rumusan Masalah Penelitian
+
+1. *Dampak Biologis:* Bagaimana dampak keberadaan ikan sapu-sapu terhadap keseimbangan ekosistem dan keanekaragaman hayati?
+2. *Dampak Kimia:* Bagaimana kondisi kimia air (pH, oksigen, zat pencemar) mempengaruhi kemampuan bertahan dan berkembang biak?
+3. *Dampak Fisika:* Bagaimana faktor fisika perairan (arus, suhu, kekeruhan) mempengaruhi penyebaran dan dominasi populasi?
+
+---
+## 👥 Tim Pengembang
+
+### SAPUVANIAN TEAM (2026)
+
+| No. | Nama | Peran | Kontribusi |
+|-----|------|-------|-----------|
+| 1 | *Anargya Ranandy* | Koordinator Proyek | Strategic planning, project leadership, data validation |
+| 2 | *Dedan Concetta* | Content Creator & Writer | Educational content creation, social media management |
+| 3 | *Elisabet Andara* | Riset & Analisis Data | Scientific research, data analysis, literature review |
+| 4 | *Jovianca Yoshi* | Desain UI/UX | Visual design, user interface, branding |
+| 5 | *Noventiana* | Community Manager | Community building, stakeholder engagement, outreach |
+| 6 | *Rosalia Sinar* | Web Developer | Website development, frontend/backend, deployment |
+
+### Nilai-Nilai Tim
+- 🎓 *Integritas Ilmiah* - Semua informasi berbasis data & riset kredibel
+- 🌍 *Komitmen Lingkungan* - Dedikasi untuk pelestarian ekosistem
+- 🤝 *Kolaborasi* - Kerjasama dengan stakeholder & komunitas lokal
+- 💡 *Inovasi* - Solusi kreatif untuk masalah kompleks
 
 ---
 
